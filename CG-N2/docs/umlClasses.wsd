@@ -38,17 +38,17 @@ Objeto : + void FilhoAdicionar(Objeto filho)
 Objeto : + void FilhoRemover(Objeto filho)
 Objeto : # abstract void PontosExibir()
 Objeto : + void PontosExibirObjeto()
-Objeto <|-down- ObjetoAramado
+Objeto <|-down- ObjetoGeometria
 BBox <-left- Objeto
 
-ObjetoAramado : # List<Ponto4D> pontosLista
-ObjetoAramado : + ObjetoAramado(string rotulo)
-ObjetoAramado : # override void DesenharGeometria()
-ObjetoAramado : # void PontosAdicionar(Ponto4D pto)
-ObjetoAramado : # void PontosRemoverTodos()
-ObjetoAramado : # override void PontosExibir()
-ObjetoAramado o-down- Ponto4D
-ObjetoAramado <|-down- Retangulo
+ObjetoGeometria : # List<Ponto4D> pontosLista
+ObjetoGeometria : + ObjetoGeometria(string rotulo)
+ObjetoGeometria : # override void DesenharGeometria()
+ObjetoGeometria : # void PontosAdicionar(Ponto4D pto)
+ObjetoGeometria : # void PontosRemoverTodos()
+ObjetoGeometria : # override void PontosExibir()
+ObjetoGeometria o-down- Ponto4D
+ObjetoGeometria <|-down- Retangulo
 
 Retangulo : - Ponto4D ptoInfEsq
 Retangulo : - Ponto4D ptoSupDir
