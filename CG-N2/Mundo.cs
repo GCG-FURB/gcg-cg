@@ -58,7 +58,7 @@ namespace gcgcg
       objetosLista.Add(obj_Circulo);
       objetoSelecionado = obj_Circulo;
 #endif
-      GL.ClearColor(Color.Gray);
+      GL.ClearColor(OpenTK.Color.Gray);
     }
     protected override void OnUpdateFrame(FrameEventArgs e)
     {
@@ -121,11 +121,11 @@ namespace gcgcg
     {
       GL.LineWidth(1);
       GL.Begin(PrimitiveType.Lines);
-      GL.Color3(Color.Red);
+      GL.Color3(OpenTK.Color.Red);
       GL.Vertex3(0, 0, 0); GL.Vertex3(200, 0, 0);
-      GL.Color3(Color.Green);
+      GL.Color3(OpenTK.Color.Green);
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 200, 0);
-      GL.Color3(Color.Blue);
+      GL.Color3(OpenTK.Color.Blue);
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 0, 200);
       GL.End();
     }
