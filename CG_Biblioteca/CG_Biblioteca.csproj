@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>CG_Biblioteca</RootNamespace>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <DocumentationFile>bin\documentação.XML</DocumentationFile>
+<!--    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>bin\documentação.XML</DocumentationFile>-->
   </PropertyGroup>
 
   <ItemGroup>
