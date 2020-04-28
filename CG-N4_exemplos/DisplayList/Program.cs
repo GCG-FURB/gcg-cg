@@ -14,7 +14,6 @@ using System;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Input;
-using System.Drawing;
 
 //TODO: ter uma rotina que mostre a taxa de FPS para mostrar a diferença com e sem o uso da DisplayList
 
