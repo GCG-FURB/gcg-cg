@@ -13,14 +13,14 @@ namespace Iluminacao
   class Mundo : GameWindow
   {
     private bool ligaLuz = true;
-    private Color cor = Color.White;
+    private OpenTK.Color cor = OpenTK.Color.White;
 
     public Mundo(int width, int height) : base(width, height) { }
 
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
-      GL.ClearColor(Color.Gray);
+      GL.ClearColor(OpenTK.Color.Gray);
       GL.Enable(EnableCap.DepthTest);
       GL.Enable(EnableCap.CullFace);
 
@@ -79,13 +79,13 @@ namespace Iluminacao
         if (e.Key == Key.L)
         ligaLuz = !ligaLuz;
       else if (e.Key == Key.W)
-        cor = Color.White;
+        cor = OpenTK.Color.White;
       else if (e.Key == Key.R)
-        cor = Color.Red;
+        cor = OpenTK.Color.Red;
       else if (e.Key == Key.G)
-        cor = Color.Green;
+        cor = OpenTK.Color.Green;
       else if (e.Key == Key.B)
-        cor = Color.Blue;
+        cor = OpenTK.Color.Blue;
     }
 
     protected override void OnMouseMove(MouseMoveEventArgs e)
@@ -154,11 +154,11 @@ namespace Iluminacao
     {
       GL.LineWidth(3);
       GL.Begin(PrimitiveType.Lines);
-      GL.Color3(Color.Red);
+      GL.Color3(OpenTK.Color.Red);
       GL.Vertex3(0, 0, 0); GL.Vertex3(200, 0, 0);
-      GL.Color3(Color.Green);
+      GL.Color3(OpenTK.Color.Green);
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 200, 0);
-      GL.Color3(Color.Blue);
+      GL.Color3(OpenTK.Color.Blue);
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 0, 200);
       GL.End();
     }
