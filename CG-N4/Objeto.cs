@@ -40,6 +40,8 @@ namespace gcgcg
     {
       GL.PushMatrix();                                    // N3-Exe14: grafo de cena
       GL.MultMatrix(matriz.ObterDados());
+      GL.Color3(255,255,255);
+      GL.LineWidth(PrimitivaTamanho);
       DesenharGeometria();
       for (var i = 0; i < objetosLista.Count; i++)
       {

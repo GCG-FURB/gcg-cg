@@ -58,13 +58,10 @@ namespace gcgcg
 
     protected override void DesenharObjeto()
     {
-      GL.PushMatrix();
-      GL.Color3(255,255,255);
       GL.Begin(PrimitiveType.Triangles);
       foreach (int index in listaTopologia)
         GL.Vertex3(base.pontosLista[index].X, base.pontosLista[index].Y, base.pontosLista[index].Z);
       GL.End();
-      GL.PopMatrix();
     }
 
     //TODO: melhorar para exibir não só a lsita de pontos (geometria), mas também a topologia ... poderia ser listado estilo OBJ da Wavefrom

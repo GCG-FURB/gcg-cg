@@ -26,6 +26,8 @@ namespace gcgcg
 
     public void Desenhar()
     {
+      GL.Color3(255,255,255);
+      GL.LineWidth(PrimitivaTamanho);
       DesenharGeometria();
       for (var i = 0; i < objetosLista.Count; i++)
       {

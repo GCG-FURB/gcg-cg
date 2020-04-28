@@ -19,7 +19,6 @@ namespace gcgcg
 
     protected override void DesenharObjeto()
     {
-      GL.Color3(255,255,255);
       GL.Begin(base.PrimitivaTipo);
       foreach (Ponto4D pto in pontosLista)
       {

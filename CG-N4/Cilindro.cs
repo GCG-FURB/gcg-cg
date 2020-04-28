@@ -64,7 +64,6 @@ namespace gcgcg
 
     protected override void DesenharObjeto()
     {
-      GL.Color3(255,255,255);
       GL.Begin(PrimitiveType.Triangles);
       foreach (int index in listaTopologia)
         GL.Vertex3(base.pontosLista[index].X, base.pontosLista[index].Y, base.pontosLista[index].Z);
