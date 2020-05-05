@@ -2,7 +2,6 @@
   Autor: Dalton Solano dos Reis
 **/
 
-using System;
 using System.Collections.Generic;
 using CG_Biblioteca;
 
@@ -43,6 +42,11 @@ namespace gcgcg
     public Ponto4D PontosUltimo()
     {
       return pontosLista[pontosLista.Count - 1];
+    }
+
+    public void PontosAlterar(Ponto4D pto, int posicao)
+    {
+      pontosLista[posicao] = pto;
     }
 
     public override string ToString()
