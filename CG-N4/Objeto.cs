@@ -11,6 +11,8 @@ namespace gcgcg
   internal abstract class Objeto
   {
     protected string rotulo;
+    private OpenTK.Color primitivaCor = OpenTK.Color.White;
+    protected OpenTK.Color PrimitivaCor { get => primitivaCor; set => primitivaCor = value; }
     private PrimitiveType primitivaTipo = PrimitiveType.LineLoop;
     protected PrimitiveType PrimitivaTipo { get => primitivaTipo; set => primitivaTipo = value; }
     private float primitivaTamanho = 2;
@@ -40,7 +42,7 @@ namespace gcgcg
     {
       GL.PushMatrix();                                    // N3-Exe14: grafo de cena
       GL.MultMatrix(matriz.ObterDados());
-      GL.Color3(OpenTK.Color.White);
+      GL.Color3(primitivaCor);
       GL.LineWidth(PrimitivaTamanho);
       DesenharGeometria();
       for (var i = 0; i < objetosLista.Count; i++)
