@@ -60,41 +60,49 @@ namespace gcgcg
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
+
       Console.WriteLine(" --- Ajuda / Teclas: ");
       Console.WriteLine(" [  H     ] mostra teclas usadas. ");
 
       obj_Retangulo = new Retangulo("A", null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
       objetosLista.Add(obj_Retangulo);
+      obj_Retangulo.PrimitivaCor = OpenTK.Color.Violet;
       objetoSelecionado = obj_Retangulo;
 
 #if CG_Privado
       obj_SegReta = new Privado_SegReta("B", null, new Ponto4D(50, 150), new Ponto4D(150, 250));
       objetosLista.Add(obj_SegReta);
       objetoSelecionado = obj_SegReta;
+      obj_SegReta.PrimitivaCor = OpenTK.Color.Violet;
 
       obj_Circulo = new Privado_Circulo("C", null, new Ponto4D(100, 300), 50);
       objetosLista.Add(obj_Circulo);
       objetoSelecionado = obj_Circulo;
+      obj_Circulo.PrimitivaCor = OpenTK.Color.Violet;
 #endif
 
       obj_Cilindro = new Cilindro("D", null);
       objetosLista.Add(obj_Cilindro);
       obj_Cilindro.EscalaXYZ(50, 50, 50);
       obj_Cilindro.TranslacaoXYZ(150, 0, 0);
+      obj_Cilindro.PrimitivaCor = OpenTK.Color.Violet;
 
       obj_Esfera = new Esfera("E", null);
       objetosLista.Add(obj_Esfera);
       obj_Esfera.EscalaXYZ(50, 50, 50);
       obj_Esfera.TranslacaoXYZ(200, 0, 0);
+      obj_Esfera.PrimitivaCor = OpenTK.Color.Violet;
 
       // obj_Cone = new Cone("F", null);
       // objetosLista.Add(obj_Cone);
       // obj_Cone.EscalaXYZ(50, 50, 50);
       // obj_Cone.TranslacaoXYZ(250,0,0);
+      // obj_Cone.PrimitivaCor = OpenTK.Color.Violet;
 
       obj_Cubo = new Cubo("G", null);
       objetosLista.Add(obj_Cubo);
       obj_Cubo.EscalaXYZ(50, 50, 50);
+      // obj_Cone.PrimitivaCor = OpenTK.Color.Violet;
 
       objetoSelecionado = obj_Cubo;
 
