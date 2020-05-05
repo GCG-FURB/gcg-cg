@@ -42,20 +42,25 @@ namespace gcgcg
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
+      camera.xmin = 0; camera.xmax = 600; camera.ymin = 0; camera.ymax = 600;
+
       Console.WriteLine(" --- Ajuda / Teclas: ");
       Console.WriteLine(" [  H     ] mostra teclas usadas. ");
 
       obj_Retangulo = new Retangulo("A", null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
       objetosLista.Add(obj_Retangulo);
+      obj_Retangulo.PrimitivaCor = OpenTK.Color.Violet;
       objetoSelecionado = obj_Retangulo;
 
 #if CG_Privado
       obj_SegReta = new Privado_SegReta("B", null, new Ponto4D(50, 150), new Ponto4D(150, 250));
       objetosLista.Add(obj_SegReta);
+      obj_SegReta.PrimitivaCor = OpenTK.Color.Tomato;
       objetoSelecionado = obj_SegReta;
 
       obj_Circulo = new Privado_Circulo("C", null, new Ponto4D(100, 300), 50);
       objetosLista.Add(obj_Circulo);
+      obj_Circulo.PrimitivaCor = OpenTK.Color.Tan;
       objetoSelecionado = obj_Circulo;
 #endif
       GL.ClearColor(OpenTK.Color.Gray);
@@ -75,7 +80,7 @@ namespace gcgcg
       GL.LoadIdentity();
 #if CG_Gizmo      
       Sru3D();
-#endif      
+#endif
       for (var i = 0; i < objetosLista.Count; i++)
         objetosLista[i].Desenhar();
       if (bBoxDesenhar && (objetoSelecionado != null))
@@ -116,7 +121,7 @@ namespace gcgcg
       }
     }
 
-#if CG_Gizmo    
+#if CG_Gizmo
     private void Sru3D()
     {
       GL.LineWidth(1);

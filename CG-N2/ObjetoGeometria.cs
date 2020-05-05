@@ -43,6 +43,11 @@ namespace gcgcg
       return pontosLista[pontosLista.Count - 1];
     }
 
+    public void PontosAlterar(Ponto4D pto, int posicao)
+    {
+      pontosLista[posicao] = pto;
+    }
+
     public override string ToString()
     {
       string retorno;
