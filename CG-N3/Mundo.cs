@@ -145,25 +145,25 @@ namespace gcgcg
           objetoSelecionado.AtribuirIdentidade();
         //TODO: não está atualizando a BBox com as transformações geométricas
         else if (e.Key == Key.Left)
-          objetoSelecionado.TranslacaoXY(-10, 0);
+          objetoSelecionado.TranslacaoXYZ(-10, 0, 0);
         else if (e.Key == Key.Right)
-          objetoSelecionado.TranslacaoXY(10, 0);
+          objetoSelecionado.TranslacaoXYZ(10, 0, 0);
         else if (e.Key == Key.Up)
-          objetoSelecionado.TranslacaoXY(0, 10);
+          objetoSelecionado.TranslacaoXYZ(0, 10, 0);
         else if (e.Key == Key.Down)
-          objetoSelecionado.TranslacaoXY(0, -10);
+          objetoSelecionado.TranslacaoXYZ(0, -10, 0);
         else if (e.Key == Key.PageUp)
-          objetoSelecionado.EscalaXY(2, 2);
+          objetoSelecionado.EscalaXYZ(2, 2, 2);
         else if (e.Key == Key.PageDown)
-          objetoSelecionado.EscalaXY(0.5, 0.5);
+          objetoSelecionado.EscalaXYZ(0.5, 0.5, 0.5);
         else if (e.Key == Key.Home)
-          objetoSelecionado.EscalaXYBBox(0.5);
+          objetoSelecionado.EscalaXYZBBox(0.5, 0.5, 0.5);
         else if (e.Key == Key.End)
-          objetoSelecionado.EscalaXYBBox(2);
+          objetoSelecionado.EscalaXYZBBox(2, 2, 2);
         else if (e.Key == Key.Number1)
-          objetoSelecionado.RotacaoZ(10);
+          objetoSelecionado.Rotacao(10);
         else if (e.Key == Key.Number2)
-          objetoSelecionado.RotacaoZ(-10);
+          objetoSelecionado.Rotacao(-10);
         else if (e.Key == Key.Number3)
           objetoSelecionado.RotacaoZBBox(10);
         else if (e.Key == Key.Number4)
