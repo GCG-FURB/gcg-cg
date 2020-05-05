@@ -3,6 +3,7 @@
 **/
 
 #define CG_Gizmo
+#define CG_Privado
 
 using System;
 using OpenTK;
@@ -33,13 +34,45 @@ namespace gcgcg
     int mouseX, mouseY;   //TODO: achar método MouseDown para não ter variável Global
     private Poligono objetoNovo = null;
     private String objetoId = "A";
+#if CG_Privado
+    private Retangulo obj_Retangulo;
+    private Privado_SegReta obj_SegReta;
+    private Privado_Circulo obj_Circulo;
+#endif
 
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
+      camera.xmin = 0; camera.xmax = 600; camera.ymin = 0; camera.ymax = 600;
+
       Console.WriteLine(" --- Ajuda / Teclas: ");
       Console.WriteLine(" [  H     ] mostra teclas usadas. ");
 
+
+#if CG_Privado
+      obj_Retangulo = new Retangulo(objetoId + 1, null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
+      objetosLista.Add(obj_Retangulo);
+      obj_Retangulo.PrimitivaCor = OpenTK.Color.Violet;
+      objetoSelecionado = obj_Retangulo;
+
+      obj_SegReta = new Privado_SegReta(objetoId + 1, null, new Ponto4D(50, 150), new Ponto4D(150, 250));
+      objetosLista.Add(obj_SegReta);
+      obj_SegReta.PrimitivaCor = OpenTK.Color.Tomato;
+      objetoSelecionado = obj_SegReta;
+
+      obj_Circulo = new Privado_Circulo(objetoId + 1, null, new Ponto4D(100, 300), 50);
+      objetosLista.Add(obj_Circulo);
+      obj_Circulo.PrimitivaCor = OpenTK.Color.Tan;
+      objetoSelecionado = obj_Circulo;
+
+      objetoNovo = new Poligono(objetoId + 1, null);
+      objetosLista.Add(objetoNovo);
+      objetoNovo.PontosAdicionar(new Ponto4D(50, 350));
+      objetoNovo.PontosAdicionar(new Ponto4D(150, 350));  // N3-Exe6: "troque" para deixar o rastro
+      objetoNovo.PontosAdicionar(new Ponto4D(100, 450));
+      objetoSelecionado = objetoNovo;
+      objetoNovo = null;
+#endif
       GL.ClearColor(OpenTK.Color.Gray);
     }
     protected override void OnUpdateFrame(FrameEventArgs e)
