@@ -10,6 +10,7 @@ using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using System.Collections.Generic;
 using OpenTK.Input;
+using System.Drawing;
 using CG_Biblioteca;
 
 namespace gcgcg
@@ -49,7 +50,7 @@ namespace gcgcg
 
       obj_Retangulo = new Retangulo("A", null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
       objetosLista.Add(obj_Retangulo);
-      obj_Retangulo.PrimitivaCor = OpenTK.Color.Violet;
+      obj_Retangulo.PrimitivaCor = Color.Violet;
       objetoSelecionado = obj_Retangulo;
 
 #if CG_Privado
@@ -63,7 +64,7 @@ namespace gcgcg
       obj_Circulo.PrimitivaCor = OpenTK.Color.Tan;
       objetoSelecionado = obj_Circulo;
 #endif
-      GL.ClearColor(OpenTK.Color.Gray);
+      GL.ClearColor(Color.Gray);
     }
     protected override void OnUpdateFrame(FrameEventArgs e)
     {
@@ -126,11 +127,11 @@ namespace gcgcg
     {
       GL.LineWidth(1);
       GL.Begin(PrimitiveType.Lines);
-      GL.Color3(OpenTK.Color.Red);
+      GL.Color3(Color.Red);
       GL.Vertex3(0, 0, 0); GL.Vertex3(200, 0, 0);
-      GL.Color3(OpenTK.Color.Green);
+      GL.Color3(Color.Green);
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 200, 0);
-      GL.Color3(OpenTK.Color.Blue);
+      GL.Color3(Color.Blue);
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 0, 200);
       GL.End();
     }

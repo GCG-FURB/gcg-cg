@@ -2,8 +2,8 @@
   Autor: Dalton Solano dos Reis
 **/
 
-using OpenTK;
 using OpenTK.Graphics.OpenGL;
+using System.Drawing;
 
 namespace CG_Biblioteca
 {
@@ -59,7 +59,7 @@ namespace CG_Biblioteca
 
     public void Desenhar()
     {
-      GL.Color3(OpenTK.Color.Yellow);
+      GL.Color3(Color.Yellow);
 
       GL.PointSize(5);
       GL.Begin(PrimitiveType.Points);
