@@ -12,7 +12,7 @@ namespace gcgcg
   internal abstract class Objeto
   {
     protected string rotulo;
-    private Color primitivaCor = Color.White;
+    private Color primitivaCor = System.Drawing.Color.White;
     public Color PrimitivaCor { get => primitivaCor; set => primitivaCor = value; }
     private PrimitiveType primitivaTipo = PrimitiveType.LineLoop;
     public PrimitiveType PrimitivaTipo { get => primitivaTipo; set => primitivaTipo = value; }
