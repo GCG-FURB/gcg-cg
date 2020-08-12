@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="gcgcg.Mundo">
+    <Position X="8" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAACAAgQAQAAAAAAAAkACBBIABGAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mundo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gcgcg.Program">
+    <Position X="10.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Mundo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gcgcg.Objeto">
+    <Position X="5" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AQBAQAAAAAQAAAAAAAAEAAAABgQAAAAAAIgAAACIAEA=</HashCode>
+      <FileName>Objeto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gcgcg.ObjetoGeometria">
+    <Position X="5" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QABABIAAAAAAAAAEAAAAAAAAAAAAAAJAAAgAAAAAAQA=</HashCode>
+      <FileName>ObjetoGeometria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gcgcg.Retangulo">
+    <Position X="5" Y="9.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Retangulo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gcgcg.Utilitario">
+    <Position X="10.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utilitario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
