@@ -1,4 +1,4 @@
-# gcg-cg
+# disciplina-cg
 Material da disciplina de Computação Gráfica que utiliza o OpenTK como renderizador.
 
 # OpenTK / SDK do .NET Core / VSCode
