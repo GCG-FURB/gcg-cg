@@ -4,7 +4,7 @@
 title Diagrama de Classes
 footer Grupo GCG - [[http://gcg.inf.furb.br]]
 
-BBox : - double menorX
+BBox : - double menorXa
 BBox : - double menorY
 BBox : - double menorZ
 BBox : - double maiorX
