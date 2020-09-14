@@ -47,15 +47,15 @@ namespace gcgcg
     int mouseX, mouseY;   //TODO: achar método MouseDown para não ter variável Global
     private Poligono objetoNovo = null;
     private String objetoId = "A";
-    private Retangulo obj_Retangulo;
 #if CG_Privado
+    private Retangulo obj_Retangulo;
     private Privado_SegReta obj_SegReta;
     private Privado_Circulo obj_Circulo;
-#endif
-    private Cubo obj_Cubo;
     private Cilindro obj_Cilindro;
     private Esfera obj_Esfera;
     private Cone obj_Cone;
+#endif
+    private Cubo obj_Cubo;
 
     protected override void OnLoad(EventArgs e)
     {
@@ -64,57 +64,70 @@ namespace gcgcg
       Console.WriteLine(" --- Ajuda / Teclas: ");
       Console.WriteLine(" [  H     ] mostra teclas usadas. ");
 
-      obj_Retangulo = new Retangulo("A", null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
-      objetosLista.Add(obj_Retangulo);
-      obj_Retangulo.PrimitivaCor = OpenTK.Color.Violet;
-      objetoSelecionado = obj_Retangulo;
 
 #if CG_Privado
+      obj_Retangulo = new Retangulo("A", null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
+      objetosLista.Add(obj_Retangulo);
+      obj_Retangulo.PrimitivaCor = System.Drawing.Color.Violet;
+      objetoSelecionado = obj_Retangulo;
+
       obj_SegReta = new Privado_SegReta("B", null, new Ponto4D(50, 150), new Ponto4D(150, 250));
       objetosLista.Add(obj_SegReta);
       objetoSelecionado = obj_SegReta;
-      obj_SegReta.PrimitivaCor = OpenTK.Color.Violet;
+      obj_SegReta.PrimitivaCor = System.Drawing.Color.Violet;
 
       obj_Circulo = new Privado_Circulo("C", null, new Ponto4D(100, 300), 50);
       objetosLista.Add(obj_Circulo);
       objetoSelecionado = obj_Circulo;
-      obj_Circulo.PrimitivaCor = OpenTK.Color.Violet;
-#endif
-
+      obj_Circulo.PrimitivaCor = System.Drawing.Color.Violet;
       obj_Cilindro = new Cilindro("D", null);
       objetosLista.Add(obj_Cilindro);
       obj_Cilindro.EscalaXYZ(50, 50, 50);
       obj_Cilindro.TranslacaoXYZ(150, 0, 0);
-      obj_Cilindro.PrimitivaCor = OpenTK.Color.Violet;
+      obj_Cilindro.PrimitivaCor = System.Drawing.Color.Violet;
 
       obj_Esfera = new Esfera("E", null);
       objetosLista.Add(obj_Esfera);
       obj_Esfera.EscalaXYZ(50, 50, 50);
       obj_Esfera.TranslacaoXYZ(200, 0, 0);
-      obj_Esfera.PrimitivaCor = OpenTK.Color.Violet;
+      obj_Esfera.PrimitivaCor = System.Drawing.Color.Violet;
 
       // obj_Cone = new Cone("F", null);
       // objetosLista.Add(obj_Cone);
       // obj_Cone.EscalaXYZ(50, 50, 50);
       // obj_Cone.TranslacaoXYZ(250,0,0);
-      // obj_Cone.PrimitivaCor = OpenTK.Color.Violet;
+      // obj_Cone.PrimitivaCor = System.Drawing.Color.Violet;
+#endif
 
-      obj_Cubo = new Cubo("G", null);
+
+      obj_Cubo = new Cubo("Chão", null);
       objetosLista.Add(obj_Cubo);
-      obj_Cubo.EscalaXYZ(50, 50, 50);
-      // obj_Cone.PrimitivaCor = OpenTK.Color.Violet;
+      obj_Cubo.EscalaXYZ(7, 1, 5);
+      obj_Cubo.TranslacaoXYZ(3,-1,2);
+
+      obj_Cubo = new Cubo("Parede1", null);
+      objetosLista.Add(obj_Cubo);
+      obj_Cubo.TranslacaoXYZ(0,0,0);
+
+      obj_Cubo = new Cubo("Parede2", null);
+      objetosLista.Add(obj_Cubo);
+      obj_Cubo.TranslacaoXYZ(0,0,1);
+
+      obj_Cubo = new Cubo("Personagem", null);
+      objetosLista.Add(obj_Cubo);
+      obj_Cubo.EscalaXYZ(0.7, 0.7, 0.7);
+      obj_Cubo.TranslacaoXYZ(1,0,3);
 
       objetoSelecionado = obj_Cubo;
 
-      camera.At = new Vector3(0, 0, 0);
-      camera.Eye = new Vector3(1000, 1000, 1000);
-      camera.Near = 100.0f;
-      camera.Far = 2000.0f;
+      camera.Eye = new Vector3(3.5f, -1, 3);
+      camera.At = new Vector3(3.5f, -0.5f, 2.5f);
+      camera.Near = 0.1f;
+      camera.Far = 60.0f;
 
       GL.ClearColor(127,127,127,255);
       GL.Enable(EnableCap.DepthTest);
-      // GL.Enable(EnableCap.CullFace);
-      GL.Disable(EnableCap.CullFace);
+      GL.Enable(EnableCap.CullFace);
     }
     protected override void OnResize(EventArgs e)
     {
@@ -195,17 +208,17 @@ namespace gcgcg
           objetoSelecionado.AtribuirIdentidade();
         //TODO: não está atualizando a BBox com as transformações geométricas
         else if (e.Key == Key.Left)
-          objetoSelecionado.TranslacaoXYZ(-10, 0, 0);
+          objetoSelecionado.TranslacaoXYZ(-1, 0, 0);
         else if (e.Key == Key.Right)
-          objetoSelecionado.TranslacaoXYZ(10, 0, 0);
+          objetoSelecionado.TranslacaoXYZ(1, 0, 0);
         else if (e.Key == Key.Up)
-          objetoSelecionado.TranslacaoXYZ(0, 10, 0);
+          objetoSelecionado.TranslacaoXYZ(0, 0, -1);
         else if (e.Key == Key.Down)
-          objetoSelecionado.TranslacaoXYZ(0, -10, 0);
+          objetoSelecionado.TranslacaoXYZ(0, 0, 1);
         else if (e.Key == Key.Number8)
-          objetoSelecionado.TranslacaoXYZ(0, 0, 10);
+          objetoSelecionado.TranslacaoXYZ(0, 1, 0);
         else if (e.Key == Key.Number9)
-          objetoSelecionado.TranslacaoXYZ(0, 0, -10);
+          objetoSelecionado.TranslacaoXYZ(0, -1, 0);
         else if (e.Key == Key.PageUp)
           objetoSelecionado.EscalaXYZ(2, 2, 2);
         else if (e.Key == Key.PageDown)
@@ -253,11 +266,11 @@ namespace gcgcg
     {
       GL.LineWidth(1);
       GL.Begin(PrimitiveType.Lines);
-      GL.Color3(OpenTK.Color.Red);
+      GL.Color3(System.Drawing.Color.Red);
       GL.Vertex3(0, 0, 0); GL.Vertex3(200, 0, 0);
-      GL.Color3(OpenTK.Color.Green);
+      GL.Color3(System.Drawing.Color.Green);
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 200, 0);
-      GL.Color3(OpenTK.Color.Blue);
+      GL.Color3(System.Drawing.Color.Blue);
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 0, 200);
       GL.End();
     }
