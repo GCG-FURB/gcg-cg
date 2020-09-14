@@ -175,11 +175,17 @@ namespace Mundo
     protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)
     {
       if (e.Key == Key.D)
+      {
         comDisplayList = !comDisplayList;
+      }
       else if (e.Key == Key.Minus && clones > 1)
         clones -= 1;
       else if (e.Key == Key.Plus)
         clones += 1;
+      if (comDisplayList)
+        Console.WriteLine("COM display: " + clones);
+      else
+        Console.WriteLine("SEM display: " + clones);
     }
 
 #if CG_Gizmo

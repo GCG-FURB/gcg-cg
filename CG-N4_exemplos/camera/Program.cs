@@ -1,4 +1,4 @@
-﻿// #define CG_Gizmo
+﻿#define CG_Gizmo
 
 using System;
 using OpenTK;
