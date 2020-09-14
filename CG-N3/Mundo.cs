@@ -59,20 +59,20 @@ namespace gcgcg
 #if CG_Privado
       obj_Retangulo = new Retangulo(objetoId + 1, null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
       objetosLista.Add(obj_Retangulo);
-      obj_Retangulo.PrimitivaCor = OpenTK.Color.Violet;
+      obj_Retangulo.PrimitivaCor = System.Drawing.Color.Violet;
       objetoSelecionado = obj_Retangulo;
 
       obj_SegReta = new Privado_SegReta(objetoId + 1, null, new Ponto4D(50, 150), new Ponto4D(150, 250));
       objetosLista.Add(obj_SegReta);
-      obj_SegReta.PrimitivaCor = OpenTK.Color.Tomato;
+      obj_SegReta.PrimitivaCor = System.Drawing.Color.Tomato;
       objetoSelecionado = obj_SegReta;
 
       obj_Circulo = new Privado_Circulo(objetoId + 1, null, new Ponto4D(100, 300), 50);
       objetosLista.Add(obj_Circulo);
-      obj_Circulo.PrimitivaCor = OpenTK.Color.Tan;
+      obj_Circulo.PrimitivaCor = System.Drawing.Color.Tan;
       objetoSelecionado = obj_Circulo;
 #endif
-      GL.ClearColor(OpenTK.Color.Gray);
+      GL.ClearColor(System.Drawing.Color.Gray);
     }
     protected override void OnUpdateFrame(FrameEventArgs e)
     {
@@ -192,11 +192,11 @@ namespace gcgcg
     {
       GL.LineWidth(1);
       GL.Begin(PrimitiveType.Lines);
-      GL.Color3(OpenTK.Color.Red);
+      GL.Color3(System.Drawing.Color.Red);
       GL.Vertex3(0, 0, 0); GL.Vertex3(200, 0, 0);
-      GL.Color3(OpenTK.Color.Green);
+      GL.Color3(System.Drawing.Color.Green);
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 200, 0);
-      GL.Color3(OpenTK.Color.Blue);
+      GL.Color3(System.Drawing.Color.Blue);
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 0, 200);
       GL.End();
     }

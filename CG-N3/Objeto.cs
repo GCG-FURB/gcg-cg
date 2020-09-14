@@ -11,8 +11,8 @@ namespace gcgcg
   internal abstract class Objeto
   {
     protected string rotulo;
-    private OpenTK.Color primitivaCor = OpenTK.Color.White;
-    public OpenTK.Color PrimitivaCor { get => primitivaCor; set => primitivaCor = value; }
+    private System.Drawing.Color primitivaCor = System.Drawing.Color.White;
+    public System.Drawing.Color PrimitivaCor { get => primitivaCor; set => primitivaCor = value; }
     private PrimitiveType primitivaTipo = PrimitiveType.LineLoop;
     public PrimitiveType PrimitivaTipo { get => primitivaTipo; set => primitivaTipo = value; }
     private float primitivaTamanho = 1;
