@@ -4,6 +4,7 @@
 
 using OpenTK.Graphics.OpenGL;
 using System.Collections.Generic;
+using System.Drawing;
 using CG_Biblioteca;
 
 namespace gcgcg
@@ -11,8 +12,8 @@ namespace gcgcg
   internal abstract class Objeto
   {
     protected string rotulo;
-    private System.Drawing.Color primitivaCor = System.Drawing.Color.White;
-    public System.Drawing.Color PrimitivaCor { get => primitivaCor; set => primitivaCor = value; }
+    private OpenTK.Color primitivaCor = OpenTK.Color.White;
+    public OpenTK.Color PrimitivaCor { get => primitivaCor; set => primitivaCor = value; }
     private PrimitiveType primitivaTipo = PrimitiveType.LineLoop;
     public PrimitiveType PrimitivaTipo { get => primitivaTipo; set => primitivaTipo = value; }
     private float primitivaTamanho = 1;
