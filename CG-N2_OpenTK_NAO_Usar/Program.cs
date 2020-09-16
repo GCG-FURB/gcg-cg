@@ -87,7 +87,7 @@ private void Sru3D()
     static void Main(string[] args)
     {
       GameWindow window = new Mundo(600, 600);
-      window.Title = "CG-N2_OpenTK";
+      window.Title = "CG_N2_OpenTK";
       window.Run(1.0 / 60.0);
     }
   }
