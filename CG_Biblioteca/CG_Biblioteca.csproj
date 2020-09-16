@@ -14,7 +14,7 @@ MacOS
 Windows
     <PackageReference Include="OpenTK.NetCore" Version="*" />
   -->
-    <PackageReference Include="OpenTK" Version="3.0.1" />
+     <PackageReference Include="OpenTK.NetCore" Version="*" />   
   </ItemGroup>
 
 </Project>
