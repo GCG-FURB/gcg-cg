@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/CG-N2.csproj"
+                "${workspaceFolder}/CG_N2.csproj"
             ],
             "dependsOn": [
                 "CG_Biblioteca"
@@ -20,7 +20,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/CG-N2.csproj"
+                "${workspaceFolder}/CG_N2.csproj"
             ],
             "problemMatcher": "$tsc"
         },
@@ -34,7 +34,7 @@
                 "release",
                 "-r",
                 "win10-x64",
-                "${workspaceFolder}/CG-N2.csproj"
+                "${workspaceFolder}/CG_N2.csproj"
             ],
             "problemMatcher": "$tsc"
         },
@@ -48,7 +48,7 @@
                 "release",
                 "-r",
                 "ubuntu.16.10-x64",
-                "${workspaceFolder}/CG-N2.csproj"
+                "${workspaceFolder}/CG_N2.csproj"
             ],
             "problemMatcher": "$tsc"
         },
@@ -62,7 +62,7 @@
                 "release",
                 "-r",
                 "osx-x64",
-                "${workspaceFolder}/CG-N2.csproj"
+                "${workspaceFolder}/CG_N2.csproj"
             ],
             "problemMatcher": "$tsc"
         },
@@ -73,7 +73,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/CG-N2.csproj"
+                "${workspaceFolder}/CG_N2.csproj"
             ],
             "problemMatcher": "$tsc"
         }
