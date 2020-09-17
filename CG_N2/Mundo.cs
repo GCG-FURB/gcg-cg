@@ -48,22 +48,21 @@ namespace gcgcg
       Console.WriteLine(" [  H     ] mostra teclas usadas. ");
 
       obj_Retangulo = new Retangulo("A", null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
+      obj_Retangulo.ObjetoCor.CorR = 255; obj_Retangulo.ObjetoCor.CorG = 0; obj_Retangulo.ObjetoCor.CorB = 255;
       objetosLista.Add(obj_Retangulo);
-      obj_Retangulo.PrimitivaCor = OpenTK.Color.Violet;
       objetoSelecionado = obj_Retangulo;
 
 #if CG_Privado
       obj_SegReta = new Privado_SegReta("B", null, new Ponto4D(50, 150), new Ponto4D(150, 250));
+      obj_SegReta.ObjetoCor.CorR = 255; obj_SegReta.ObjetoCor.CorG = 255; obj_SegReta.ObjetoCor.CorB = 0;
       objetosLista.Add(obj_SegReta);
-      obj_SegReta.PrimitivaCor = OpenTK.Color.Tomato;
       objetoSelecionado = obj_SegReta;
 
       obj_Circulo = new Privado_Circulo("C", null, new Ponto4D(100, 300), 50);
+      obj_Circulo.ObjetoCor.CorR = 0; obj_Circulo.ObjetoCor.CorG = 255; obj_Circulo.ObjetoCor.CorB = 255;
       objetosLista.Add(obj_Circulo);
-      obj_Circulo.PrimitivaCor = OpenTK.Color.Tan;
       objetoSelecionado = obj_Circulo;
 #endif
-      GL.ClearColor(OpenTK.Color.Black);
       GL.ClearColor(0.5f,0.5f,0.5f,1.0f);
     }
     protected override void OnUpdateFrame(FrameEventArgs e)
@@ -127,12 +126,11 @@ namespace gcgcg
     {
       GL.LineWidth(1);
       GL.Begin(PrimitiveType.Lines);
-      GL.Color3(OpenTK.Color.Red);
+      GL.Color3(255,0,0);
       GL.Vertex3(0, 0, 0); GL.Vertex3(200, 0, 0);
-      GL.Color3(OpenTK.Color.Green);
+      GL.Color3(0,255,0);
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 200, 0);
-      GL.Color3(OpenTK.Color.Blue);
-      GL.Vertex3(0, 0, 0); GL.Vertex3(0, 0, 200);
+      GL.Color3(0,0,255);
       GL.End();
     }
 #endif    
