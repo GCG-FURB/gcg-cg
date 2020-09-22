@@ -26,7 +26,7 @@ namespace CG_Biblioteca
       return (pto);
     }
 
-    public static double GerarPtosCirculoloSimétrico(double raio)
+    public static double GerarPtosCirculoSimétrico(double raio)
     {
       return (raio * Math.Cos(Math.PI * 45 / 180.0));
     }
