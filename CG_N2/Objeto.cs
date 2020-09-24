@@ -11,7 +11,7 @@ namespace gcgcg
   internal abstract class Objeto
   {
     protected string rotulo;
-    private Cor objetoCor = new Cor(255,255,255,255);
+    private Cor objetoCor = new Cor(255, 255, 255, 255);
     public Cor ObjetoCor { get => objetoCor; set => objetoCor = value; }
     private PrimitiveType primitivaTipo = PrimitiveType.LineLoop;
     public PrimitiveType PrimitivaTipo { get => primitivaTipo; set => primitivaTipo = value; }
@@ -28,7 +28,7 @@ namespace gcgcg
 
     public void Desenhar()
     {
-      GL.Color3(objetoCor.CorR,objetoCor.CorG,objetoCor.CorB);
+      GL.Color3(objetoCor.CorR, objetoCor.CorG, objetoCor.CorB);
       GL.LineWidth(primitivaTamanho);
       GL.PointSize(primitivaTamanho);
       DesenharGeometria();

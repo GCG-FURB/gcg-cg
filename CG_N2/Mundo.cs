@@ -63,7 +63,7 @@ namespace gcgcg
       objetosLista.Add(obj_Circulo);
       objetoSelecionado = obj_Circulo;
 #endif
-      GL.ClearColor(0.5f,0.5f,0.5f,1.0f);
+      GL.ClearColor(0.5f, 0.5f, 0.5f, 1.0f);
     }
     protected override void OnUpdateFrame(FrameEventArgs e)
     {
@@ -127,10 +127,10 @@ namespace gcgcg
       GL.LineWidth(1);
       GL.Begin(PrimitiveType.Lines);
       // GL.Color3(1.0f,0.0f,0.0f);
-      GL.Color3(Convert.ToByte(255),Convert.ToByte(0),Convert.ToByte(0));
+      GL.Color3(Convert.ToByte(255), Convert.ToByte(0), Convert.ToByte(0));
       GL.Vertex3(0, 0, 0); GL.Vertex3(200, 0, 0);
       // GL.Color3(0.0f,1.0f,0.0f);
-      GL.Color3(Convert.ToByte(0),Convert.ToByte(255),Convert.ToByte(0));
+      GL.Color3(Convert.ToByte(0), Convert.ToByte(255), Convert.ToByte(0));
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 200, 0);
       GL.End();
     }
