@@ -1,0 +1,10 @@
+@startuml
+class Cor {
+    + Cor(corR:byte, corG:byte, corB:byte, corA:byte)
+    + <<override>> ToString() : string
+    + CorR : byte <<get>> <<set>>
+    + CorG : byte <<get>> <<set>>
+    + CorB : byte <<get>> <<set>>
+    + CorA : byte <<get>> <<set>>
+}
+@enduml

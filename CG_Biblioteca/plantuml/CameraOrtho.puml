@@ -1,0 +1,18 @@
+@startuml
+class CameraOrtho {
+    + CameraOrtho(xMin:double, xMax:double, yMin:double, yMax:double, zMin:double, zMax:double)
+    + xmin : double <<get>> <<set>>
+    + xmax : double <<get>> <<set>>
+    + ymin : double <<get>> <<set>>
+    + ymax : double <<get>> <<set>>
+    + zmin : double <<get>> <<set>>
+    + zmax : double <<get>> <<set>>
+    + PanEsquerda() : void
+    + PanDireita() : void
+    + PanCima() : void
+    + PanBaixo() : void
+    + ZoomIn() : void
+    + ZoomOut() : void
+    + <<override>> ToString() : string
+}
+@enduml

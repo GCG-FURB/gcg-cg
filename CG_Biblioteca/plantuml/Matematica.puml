@@ -1,0 +1,6 @@
+@startuml
+abstract class Matematica {
+    + {static} GerarPtosCirculo(angulo:double, raio:double) : Ponto4D
+    + {static} GerarPtosCirculoSimétrico(raio:double) : double
+}
+@enduml

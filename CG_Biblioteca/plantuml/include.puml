@@ -1,0 +1,83 @@
+@startuml
+class BBox {
+    + BBox(menorX:double, menorY:double, menorZ:double, maiorX:double, maiorY:double, maiorZ:double)
+    + Atribuir(pto:Ponto4D) : void
+    + Atualizar(pto:Ponto4D) : void
+    + Atualizar(x:double, y:double, z:double) : void
+    + ProcessarCentro() : void
+    + Desenhar() : void
+    + obterMenorX : double <<get>>
+    + obterMenorY : double <<get>>
+    + obterMenorZ : double <<get>>
+    + obterMaiorX : double <<get>>
+    + obterMaiorY : double <<get>>
+    + obterMaiorZ : double <<get>>
+    + <<override>> ToString() : string
+}
+BBox --> "obterCentro" Ponto4D
+class CameraOrtho {
+    + CameraOrtho(xMin:double, xMax:double, yMin:double, yMax:double, zMin:double, zMax:double)
+    + xmin : double <<get>> <<set>>
+    + xmax : double <<get>> <<set>>
+    + ymin : double <<get>> <<set>>
+    + ymax : double <<get>> <<set>>
+    + zmin : double <<get>> <<set>>
+    + zmax : double <<get>> <<set>>
+    + PanEsquerda() : void
+    + PanDireita() : void
+    + PanCima() : void
+    + PanBaixo() : void
+    + ZoomIn() : void
+    + ZoomOut() : void
+    + <<override>> ToString() : string
+}
+class CameraPerspective {
+    + CameraPerspective(fovy:float, aspect:float, near:float, far:float)
+    + Fovy : float <<get>> <<set>>
+    + Aspect : float <<get>> <<set>>
+    + Near : float <<get>> <<set>>
+    + Far : float <<get>> <<set>>
+    + <<override>> ToString() : string
+}
+CameraPerspective --> "Eye" Vector3
+CameraPerspective --> "At" Vector3
+CameraPerspective --> "Up" Vector3
+class Cor {
+    + Cor(corR:byte, corG:byte, corB:byte, corA:byte)
+    + <<override>> ToString() : string
+    + CorR : byte <<get>> <<set>>
+    + CorG : byte <<get>> <<set>>
+    + CorB : byte <<get>> <<set>>
+    + CorA : byte <<get>> <<set>>
+}
+abstract class Matematica {
+    + {static} GerarPtosCirculo(angulo:double, raio:double) : Ponto4D
+    + {static} GerarPtosCirculoSimétrico(raio:double) : double
+}
+class Ponto4D {
+    + Ponto4D(x:double, y:double, z:double, w:double)
+    + Ponto4D(pto:Ponto4D)
+    + X : double <<get>> <<set>>
+    + Y : double <<get>> <<set>>
+    + Z : double <<get>> <<set>>
+    + W : double <<get>>
+    + <<override>> ToString() : string
+}
+class Transformacao4D {
+    {static} + <<readonly>> DEG_TO_RAD : double = 0.017453292519943295769236907684886
+    + Transformacao4D()
+    + AtribuirIdentidade() : void
+    + AtribuirTranslacao(tx:double, ty:double, tz:double) : void
+    + AtribuirEscala(sX:double, sY:double, sZ:double) : void
+    + AtribuirRotacaoX(radians:double) : void
+    + AtribuirRotacaoY(radians:double) : void
+    + AtribuirRotacaoZ(radians:double) : void
+    + MultiplicarPonto(pto:Ponto4D) : Ponto4D
+    + MultiplicarMatriz(t:Transformacao4D) : Transformacao4D
+    + ObterElemento(index:int) : double
+    + AtribuirElemento(index:int, value:double) : void
+    + ObterDados() : double[]
+    + AtribuirDados(data:double[]) : void
+    + <<override>> ToString() : string
+}
+@enduml

@@ -1,0 +1,18 @@
+@startuml
+class BBox {
+    + BBox(menorX:double, menorY:double, menorZ:double, maiorX:double, maiorY:double, maiorZ:double)
+    + Atribuir(pto:Ponto4D) : void
+    + Atualizar(pto:Ponto4D) : void
+    + Atualizar(x:double, y:double, z:double) : void
+    + ProcessarCentro() : void
+    + Desenhar() : void
+    + obterMenorX : double <<get>>
+    + obterMenorY : double <<get>>
+    + obterMenorZ : double <<get>>
+    + obterMaiorX : double <<get>>
+    + obterMaiorY : double <<get>>
+    + obterMaiorZ : double <<get>>
+    + <<override>> ToString() : string
+}
+BBox --> "obterCentro" Ponto4D
+@enduml

@@ -1,87 +1,9 @@
 /' http://plantuml.com/class-diagram '/ 
 @startuml CG_Biblioteca
 
-title Diagrama de Classes
+title Diagrama de Classes - CG_Biblioteca
 footer Grupo GCG - [[http://gcg.inf.furb.br]]
 
-BBox : - double menorX
-BBox : - double menorY
-BBox : - double menorZ
-BBox : - double maiorX
-BBox : - double maiorY
-BBox : - double maiorZ
-BBox : - Ponto4D centro = new Ponto4D()
-BBox : + BBox(double menorX, double menorY, double menorZ, double maiorX, double maiorY, double maiorZ)
-BBox : + void Atribuir(Ponto4D pto)
-BBox : + void Atualizar(Ponto4D pto)
-BBox : + void Atualizar(double x, double y, double z)
-BBox : + void ProcessarCentro()
-BBox : + void Desenhar()
-BBox : + double obterMenorX => menorX
-BBox : + double obterMenorY => menorY
-BBox : + double obterMenorZ => menorZ
-BBox : + double obterMaiorX => maiorX
-BBox : + double obterMaiorY => maiorY
-BBox : + double obterMaiorZ => maiorZ
-BBox : + Ponto4D obterCentro => centro
-BBox o-- Ponto4D
-/' Privado_BBox '/
-BBox : + bool Dentro(BBox bBox,Ponto4D pto)
-
-Camera : - double xMin
-Camera : - double xMax
-Camera : - double yMin
-Camera : - double yMax
-Camera : - double zMin
-Camera : - double zMax
-Camera : + Camera(double xMin,double xMax,double yMin,double yMax,double zMin, double zMax)
-Camera : + double xmin { get; set }
-Camera : + double xmax { get; set }
-Camera : + double ymin { get; set }
-Camera : + double ymax { get; set }
-Camera : + double zmin { get; set }
-Camera : + double zmax { get; set }
-Camera : + void PanEsquerda()
-Camera : + void PanDireita()
-Camera : + void PanCima()
-Camera : + void PanBaixo()
-Camera : + void ZoomIn()
-Camera : + void ZoomOut()
-
-Matematica : + {static} Ponto4D GerarPtosCirculo(double angulo, double raio)
-Matematica : + {static} double GerarPtosCirculoloSimétrico(double raio)
-/' Privado_Matematica '/ 
-Matematica : + {static} double DistanciaEuclidiana(Ponto4D pto1, Ponto4D pto2)
-Matematica : + {static} double DistanciaEuclidianaSemRaiz(Ponto4D pto1, Ponto4D pto2)
-
-Ponto4D : - double x
-Ponto4D : - double y
-Ponto4D : - double z
-Ponto4D : - readonly double w
-Ponto4D : + Ponto4D(double x, double y, double z, double w)
-Ponto4D : + Ponto4D(Ponto4D pto)
-Ponto4D : + {static} Ponto4D operator +()
-Ponto4D : + double X { get; set }
-Ponto4D : + double Y { get; set }
-Ponto4D : + double Z { get; set }
-Ponto4D : + double W { get }
-Ponto4D : + void InverterSinal()
-
-Transformacao4D : {static} + readonly double DEG_TO_RAD
-Transformacao4D : -double[4x4] matriz
-Transformacao4D : +Transformacao4D()
-Transformacao4D : +void AtribuirIdentidade()
-Transformacao4D : +void AtribuirTranslacao(double tx, double ty, double tz)
-Transformacao4D : +void AtribuirEscala(double sX, double sY, double sZ)
-Transformacao4D : +void AtribuirRotacaoX(double radians)
-Transformacao4D : +void AtribuirRotacaoY(double radians)
-Transformacao4D : +void AtribuirRotacaoZ(double radians)
-Transformacao4D : +Ponto4D MultiplicarPonto(Ponto4D pto)
-Transformacao4D : +Transformacao4D MultiplicarMatriz(Transformacao4D t)
-Transformacao4D : +double ObterElemento(int index)
-Transformacao4D : +void AtribuirElemento(int index, double value)
-Transformacao4D : +double[] ObterDados()
-Transformacao4D : +void AtribuirDados(double[] data)
-Transformacao4D : +void ExibeMatriz()
+!include ../CG_Biblioteca/plantuml/include.puml
 
 @enduml
