@@ -63,12 +63,12 @@ namespace gcgcg
       objetoSelecionado = obj_Retangulo;
 
       obj_SegReta = new Privado_SegReta(objetoId + 1, null, new Ponto4D(50, 150), new Ponto4D(150, 250));
-      obj_SegReta.ObjetoCor.CorR = 255; obj_Retangulo.ObjetoCor.CorG = 99; obj_Retangulo.ObjetoCor.CorB = 71;
+      obj_SegReta.ObjetoCor.CorR = 255; obj_SegReta.ObjetoCor.CorG = 99; obj_SegReta.ObjetoCor.CorB = 71;
       objetosLista.Add(obj_SegReta);
       objetoSelecionado = obj_SegReta;
 
       obj_Circulo = new Privado_Circulo(objetoId + 1, null, new Ponto4D(100, 300), 50);
-      obj_Circulo.ObjetoCor.CorR = 177; obj_Retangulo.ObjetoCor.CorG = 166; obj_Retangulo.ObjetoCor.CorB = 136;
+      obj_Circulo.ObjetoCor.CorR = 177; obj_Circulo.ObjetoCor.CorG = 166; obj_Circulo.ObjetoCor.CorB = 136;
       objetosLista.Add(obj_Circulo);
       objetoSelecionado = obj_Circulo;
 #endif
