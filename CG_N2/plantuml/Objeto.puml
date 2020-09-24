@@ -1,0 +1,12 @@
+@startuml
+abstract class Objeto {
+    + PrimitivaTamanho : float <<get>> <<set>>
+    + Objeto(rotulo:string, paiRef:Objeto)
+    + Desenhar() : void
+    + FilhoAdicionar(filho:Objeto) : void
+    + FilhoRemover(filho:Objeto) : void
+}
+Objeto --> "ObjetoCor" Cor
+Objeto --> "PrimitivaTipo" PrimitiveType
+Objeto --> "BBox" BBox
+@enduml

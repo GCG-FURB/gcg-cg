@@ -1,0 +1,11 @@
+@startuml
+abstract class ObjetoGeometria {
+    + ObjetoGeometria(rotulo:string, paiRef:Objeto)
+    + PontosAdicionar(pto:Ponto4D) : void
+    + PontosRemoverUltimo() : void
+    + PontosUltimo() : Ponto4D
+    + PontosAlterar(pto:Ponto4D, posicao:int) : void
+    + <<override>> ToString() : string
+}
+Objeto <|-- ObjetoGeometria
+@enduml

@@ -1,67 +1,11 @@
 /' http://plantuml.com/class-diagram '/ 
 @startuml CG_N2
 
-title Diagrama de Classes
+title Diagrama de Classes - CG_N2
 footer Grupo GCG - [[http://gcg.inf.furb.br]]
 
-!include ../CG_Biblioteca/docs/umlClasses.wsd
+!include ../CG_Biblioteca/plantuml/include.puml
 
-Program : Mundo window
-Program : {static} void Main(string[] args)
-Program o-down- Mundo
-
-Mundo : + {static} Mundo instance
-Mundo : + Mundo(int width, int height)
-Mundo : + static Mundo getInstance()
-Mundo : - Camera camera
-Mundo : # List<Objeto> objetosLista
-Mundo : # override void OnLoad(EventArgs e)
-Mundo : # override void OnUpdateFrame(FrameEventArgs e)
-Mundo : # override void OnRenderFrame(FrameEventArgs e)
-Mundo : # override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)
-Mundo : # override void OnMouseMove(MouseMoveEventArgs e)
-Mundo : - void Sru3D()
-Mundo o-down- Objeto
-Camera <-left- Mundo
-
-Objeto : # string rotulo
-Objeto : - PrimitiveType primitivaTipo
-Objeto : - float primitivaTamanho
-Objeto : - BBox bBox
-Objeto : - List<Objeto> objetosLista
-Objeto : + Objeto(string rotulo)
-Objeto : # PrimitiveType PrimitivaTipo { get; set }
-Objeto : # float PrimitivaTamanho { get ; set }
-Objeto : + void Desenhar()
-Objeto : # abstract void DesenharGeometria()
-Objeto : + void FilhoAdicionar(Objeto filho)
-Objeto : + void FilhoRemover(Objeto filho)
-Objeto : # abstract void PontosExibir()
-Objeto : + void PontosExibirObjeto()
-Objeto <|-down- ObjetoGeometria
-BBox <-left- Objeto
-
-ObjetoGeometria : # List<Ponto4D> pontosLista
-ObjetoGeometria : + ObjetoGeometria(string rotulo)
-ObjetoGeometria : # override void DesenharGeometria()
-ObjetoGeometria : # void PontosAdicionar(Ponto4D pto)
-ObjetoGeometria : # void PontosRemoverTodos()
-ObjetoGeometria : # override void PontosExibir()
-ObjetoGeometria o-down- Ponto4D
-ObjetoGeometria <|-down- Retangulo
-
-Retangulo : - Ponto4D ptoInfEsq
-Retangulo : - Ponto4D ptoSupDir
-Retangulo : + Retangulo(string rotulo,Ponto4D ptoInfEsq, Ponto4D ptoSupDir)
-Retangulo : - void GerarPtosRetangulo()
-Retangulo : + void MoverPtoSupDir(Ponto4D ptoMover)
-
-/' Privado_Circulo '/
-Privado_Circulo : - double raio
-Privado_Circulo : + Privado_Circulo(string rotulo, Ponto4D ptoCentro, double raio)
-
-/' Privado_SegReta '/
-Privado_SegReta : - double raio
-Privado_SegReta : + Privado_SegReta(string rotulo, Ponto4D ptoIni, Ponto4D ptoFim)
+!include ./plantuml/include.puml
 
 @enduml
