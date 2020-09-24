@@ -1,0 +1,11 @@
+@startuml
+class Mundo {
+    + {static} GetInstance(width:int, height:int) : Mundo
+    mouseX : int
+    mouseY : int
+}
+class Program {
+    {static} Main(args:string[]) : void
+}
+GameWindow <|-- Mundo
+@enduml

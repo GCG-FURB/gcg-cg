@@ -1,0 +1,9 @@
+@startuml
+abstract class Privado_Matematica {
+    + {static} DistanciaEuclidiana(pto1:Ponto4D, pto2:Ponto4D) : double
+    + {static} DistanciaEuclidianaSemRaiz(pto1:Ponto4D, pto2:Ponto4D) : double
+    + {static} ScanLineInterseccao(yi:double, y1:double, y2:double) : double
+    + {static} ScanLineCalculaXi(x1:double, x2:double, ti:double) : double
+    + {static} ScanLine(ptoClique:Ponto4D, ptoIni:Ponto4D, ptoFim:Ponto4D) : bool
+}
+@enduml
