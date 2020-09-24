@@ -57,7 +57,7 @@ namespace CG_Biblioteca
 
     public void Desenhar()
     {
-      GL.Color3(1.0f,1.0f,0.0f);
+      GL.Color3(1.0f, 1.0f, 0.0f);
 
       GL.PointSize(5);
       GL.Begin(PrimitiveType.Points);

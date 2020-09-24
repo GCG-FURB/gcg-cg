@@ -18,7 +18,7 @@ namespace CG_Biblioteca
     {
       string retorno;
       retorno = "__ Cor: " + "\n";
-      retorno += "corR: " + corR + " - corG" + corG + " - corB" + corB + " - corA" + corA +"\n";
+      retorno += "corR: " + corR + " - corG" + corG + " - corB" + corB + " - corA" + corA + "\n";
       return (retorno);
     }
 

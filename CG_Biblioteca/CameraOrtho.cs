@@ -10,7 +10,7 @@ namespace CG_Biblioteca
   public class CameraOrtho
   {
     private double xMin, xMax, yMin, yMax, zMin, zMax;
-//                                         near, far
+    //                                         near, far
     /// <summary>
     /// Construtor da classe inicializando com valores padrões
     /// </summary>
