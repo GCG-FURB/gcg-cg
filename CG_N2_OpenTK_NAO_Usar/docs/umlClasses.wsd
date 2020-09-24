@@ -1,18 +1,9 @@
 /' http://plantuml.com/class-diagram '/ 
-@startuml CG_N2_OpenTK
+@startuml CG_N2_OpenTK_NAO_Usar_Classes
 
-title Diagrama de Classes
+title Diagrama de Classes - CG_N2_OpenTK_NAO_Usar
 footer Grupo GCG - [[http://gcg.inf.furb.br]]
 
-Program : Mundo window
-Program : {static} void Main(string[] args)
-Program o-down- Mundo
+!include ./plantuml/include.puml
 
-Mundo : + Mundo(int width, int height)
-Mundo : # override void OnLoad(EventArgs e)
-Mundo : # override void OnUpdateFrame(FrameEventArgs e)
-Mundo : # override void OnRenderFrame(FrameEventArgs e)
-Mundo : - void Sru3D()
-Mundo : # override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)
-Mundo : # override void OnMouseMove(MouseMoveEventArgs e)
 @enduml
