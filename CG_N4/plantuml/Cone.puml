@@ -1,0 +1,7 @@
+@startuml
+class Cone {
+    + Cone(rotulo:string, paiRef:Objeto)
+    + <<override>> ToString() : string
+}
+ObjetoGeometria <|-- Cone
+@enduml

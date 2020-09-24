@@ -1,0 +1,7 @@
+@startuml
+class Privado_SegReta {
+    + Privado_SegReta(rotulo:string, paiRef:Objeto, ptoIni:Ponto4D, ptoFim:Ponto4D)
+    + <<override>> ToString() : string
+}
+ObjetoGeometria <|-- Privado_SegReta
+@enduml

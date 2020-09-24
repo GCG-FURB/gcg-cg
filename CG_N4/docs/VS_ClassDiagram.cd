@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="gcgcg.Cilindro">
+    <Position X="5.75" Y="12.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAABAAAAAQAAAAAAQA=</HashCode>
+      <FileName>Cilindro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gcgcg.Cone">
+    <Position X="10.25" Y="12.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAABAAAAAQAAAAAAQA=</HashCode>
+      <FileName>Cone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gcgcg.Cubo">
+    <Position X="12.5" Y="12.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAQAAAAAAQA=</HashCode>
+      <FileName>Cubo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gcgcg.Esfera">
+    <Position X="8" Y="12.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAEAAAAAAAAAAAABAAAAAQAAAAAAQA=</HashCode>
+      <FileName>Esfera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gcgcg.ModeloCubo">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ModeloCubo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gcgcg.Mundo">
+    <Position X="16" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AQCFAACAAgQAQAAAQAAAAkACJBaABCgAAAAAAQAAAAA=</HashCode>
+      <FileName>Mundo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gcgcg.Program">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Mundo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gcgcg.Objeto">
+    <Position X="9" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQBBQBCAAAQAAAABYAAEAGAABkQiBAAAgIgAAACMAEE=</HashCode>
+      <FileName>Objeto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gcgcg.ObjetoGeometria">
+    <Position X="9" Y="8.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QABABIAAAAAAAAAEAAAAAAAAAAAAAAJAAAgAAAAAAQA=</HashCode>
+      <FileName>ObjetoGeometria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

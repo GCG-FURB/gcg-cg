@@ -1,0 +1,7 @@
+@startuml
+class Privado_Circulo {
+    + Privado_Circulo(rotulo:string, paiRef:Objeto, ptoCentro:Ponto4D, raio:double)
+    + <<override>> ToString() : string
+}
+ObjetoGeometria <|-- Privado_Circulo
+@enduml

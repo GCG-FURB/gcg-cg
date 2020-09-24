@@ -1,0 +1,8 @@
+@startuml
+class Esfera {
+    + Esfera(rotulo:string, paiRef:Objeto)
+    drawSphere(r:double, lats:int, longs:int) : void
+    + <<override>> ToString() : string
+}
+ObjetoGeometria <|-- Esfera
+@enduml

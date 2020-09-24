@@ -1,0 +1,96 @@
+@startuml
+class Cilindro {
+    + Cilindro(rotulo:string, paiRef:Objeto)
+    + <<override>> ToString() : string
+}
+ObjetoGeometria <|-- Cilindro
+class Cone {
+    + Cone(rotulo:string, paiRef:Objeto)
+    + <<override>> ToString() : string
+}
+ObjetoGeometria <|-- Cone
+class Cubo {
+    + Cubo(rotulo:string, paiRef:Objeto)
+    + <<override>> ToString() : string
+}
+ObjetoGeometria <|-- Cubo
+class Esfera {
+    + Esfera(rotulo:string, paiRef:Objeto)
+    drawSphere(r:double, lats:int, longs:int) : void
+    + <<override>> ToString() : string
+}
+ObjetoGeometria <|-- Esfera
+class ModeloCubo {
+    + Geometria() : void
+}
+class Mundo {
+    + {static} GetInstance(width:int, height:int) : Mundo
+    mouseX : int
+    mouseY : int
+}
+class Program {
+    {static} Main(args:string[]) : void
+}
+GameWindow <|-- Mundo
+abstract class Objeto {
+    + PrimitivaTamanho : float <<get>> <<set>>
+    + TrocaEixoRotacao(eixo:char) : void
+    + Objeto(rotulo:string, paiRef:Objeto)
+    + Desenhar() : void
+    + FilhoAdicionar(filho:Objeto) : void
+    + FilhoRemover(filho:Objeto) : void
+    + AtribuirIdentidade() : void
+    + TranslacaoXYZ(tx:double, ty:double, tz:double) : void
+    + EscalaXYZ(Sx:double, Sy:double, Sz:double) : void
+    + EscalaXYZBBox(Sx:double, Sy:double, Sz:double) : void
+    + RotacaoEixo(angulo:double) : void
+    + Rotacao(angulo:double) : void
+    + RotacaoZBBox(angulo:double) : void
+}
+Objeto --> "ObjetoCor" Cor
+Objeto --> "PrimitivaTipo" PrimitiveType
+Objeto --> "BBox" BBox
+Objeto --> "Matriz" Transformacao4D
+abstract class ObjetoGeometria {
+    + ObjetoGeometria(rotulo:string, paiRef:Objeto)
+    + PontosAdicionar(pto:Ponto4D) : void
+    + PontosRemoverUltimo() : void
+    + PontosUltimo() : Ponto4D
+    + PontosAlterar(pto:Ponto4D, posicao:int) : void
+    + <<override>> ToString() : string
+}
+Objeto <|-- ObjetoGeometria
+class Poligono {
+    + Poligono(rotulo:string, paiRef:Objeto)
+    + <<override>> ToString() : string
+}
+ObjetoGeometria <|-- Poligono
+class Retangulo {
+    + Retangulo(rotulo:string, paiRef:Objeto, ptoInfEsq:Ponto4D, ptoSupDir:Ponto4D)
+    + <<override>> ToString() : string
+}
+ObjetoGeometria <|-- Retangulo
+abstract class Utilitario {
+    + {static} AjudaTeclado() : void
+}
+abstract class Privado_BBox {
+    + {static} Dentro(bBox:BBox, pto:Ponto4D) : bool
+}
+class Privado_Circulo {
+    + Privado_Circulo(rotulo:string, paiRef:Objeto, ptoCentro:Ponto4D, raio:double)
+    + <<override>> ToString() : string
+}
+ObjetoGeometria <|-- Privado_Circulo
+abstract class Privado_Matematica {
+    + {static} DistanciaEuclidiana(pto1:Ponto4D, pto2:Ponto4D) : double
+    + {static} DistanciaEuclidianaSemRaiz(pto1:Ponto4D, pto2:Ponto4D) : double
+    + {static} ScanLineInterseccao(yi:double, y1:double, y2:double) : double
+    + {static} ScanLineCalculaXi(x1:double, x2:double, ti:double) : double
+    + {static} ScanLine(ptoClique:Ponto4D, ptoIni:Ponto4D, ptoFim:Ponto4D) : bool
+}
+class Privado_SegReta {
+    + Privado_SegReta(rotulo:string, paiRef:Objeto, ptoIni:Ponto4D, ptoFim:Ponto4D)
+    + <<override>> ToString() : string
+}
+ObjetoGeometria <|-- Privado_SegReta
+@enduml

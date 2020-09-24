@@ -1,0 +1,7 @@
+@startuml
+class Cilindro {
+    + Cilindro(rotulo:string, paiRef:Objeto)
+    + <<override>> ToString() : string
+}
+ObjetoGeometria <|-- Cilindro
+@enduml
