@@ -1,4 +1,3 @@
-# gcg-cg
 Material da disciplina de Computação Gráfica que utiliza o OpenTK como renderizador.
 
 # Veja a Wiki
