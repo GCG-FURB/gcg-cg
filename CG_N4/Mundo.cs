@@ -13,6 +13,7 @@ using OpenTK.Input;
 using CG_Biblioteca;
 
 
+//FIXME: olhar exemplo alunos para arrumar esfera, está incompleta.
 //TODO: arrumar o id dos objetos usando char letra = 'A'; letra++;
 //TODO: ter mais objetos geométricos: esfera
 //TODO: arrumar objeto cone
