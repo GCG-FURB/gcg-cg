@@ -123,7 +123,7 @@ namespace gcgcg
       camera.Near = 0.1f;
       camera.Far = 60.0f;
 
-      GL.ClearColor(127,127,127,255);
+      GL.ClearColor(0.5f, 0.5f, 0.5f, 1.0f);
       GL.Enable(EnableCap.DepthTest);
       GL.Enable(EnableCap.CullFace);
     }
