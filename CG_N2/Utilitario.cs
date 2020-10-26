@@ -8,11 +8,11 @@ namespace gcgcg
 {
   public abstract class Utilitario
   {
+    public static char charProximo(char atual) {
+      return Convert.ToChar(atual + 1);
+    }
     public static void AjudaTeclado()
     {
-      // N3-Exe2: usar o arquivo docs/umlClasses.wsd
-      // N3-Exe3: usar o arquivo bin/documentação.XML -> ver exemplo CG_Biblioteca/bin/documentação.XML
-
       Console.WriteLine(" --- Ajuda / Teclas: ");
       Console.WriteLine(" [  H     ] mostra está ajuda. ");
       Console.WriteLine(" [Escape  ] sair. ");

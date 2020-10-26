@@ -9,7 +9,7 @@ namespace gcgcg
 {
   internal class Retangulo : ObjetoGeometria
   {
-    public Retangulo(string rotulo, Objeto paiRef, Ponto4D ptoInfEsq, Ponto4D ptoSupDir) : base(rotulo, paiRef)
+    public Retangulo(char rotulo, Objeto paiRef, Ponto4D ptoInfEsq, Ponto4D ptoSupDir) : base(rotulo, paiRef)
     {
       base.PontosAdicionar(ptoInfEsq);
       base.PontosAdicionar(new Ponto4D(ptoSupDir.X, ptoInfEsq.Y));

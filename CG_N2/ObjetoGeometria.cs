@@ -11,7 +11,7 @@ namespace gcgcg
   {
     protected List<Ponto4D> pontosLista = new List<Ponto4D>();
 
-    public ObjetoGeometria(string rotulo, Objeto paiRef) : base(rotulo, paiRef) { }
+    public ObjetoGeometria(char rotulo, Objeto paiRef) : base(rotulo, paiRef) { }
 
     protected override void DesenharGeometria()
     {

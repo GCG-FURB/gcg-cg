@@ -30,10 +30,10 @@ namespace gcgcg
     private CameraOrtho camera = new CameraOrtho();
     protected List<Objeto> objetosLista = new List<Objeto>();
     private ObjetoGeometria objetoSelecionado = null;
+    private char objetoId = '@';
     private bool bBoxDesenhar = false;
     int mouseX, mouseY;   //TODO: achar método MouseDown para não ter variável Global
     private Poligono objetoNovo = null;
-    private String objetoId = "A";
 #if CG_Privado
     private Retangulo obj_Retangulo;
     private Privado_SegReta obj_SegReta;
@@ -48,7 +48,8 @@ namespace gcgcg
       Console.WriteLine(" --- Ajuda / Teclas: ");
       Console.WriteLine(" [  H     ] mostra teclas usadas. ");
 
-      objetoNovo = new Poligono(objetoId + 1, null);
+      objetoId = Utilitario.charProximo(objetoId);
+      objetoNovo = new Poligono(objetoId, null);
       objetosLista.Add(objetoNovo);
       objetoNovo.PontosAdicionar(new Ponto4D(50, 350));
       objetoNovo.PontosAdicionar(new Ponto4D(150, 350));  // N3-Exe6: "troque" para deixar o rastro
@@ -126,7 +127,8 @@ namespace gcgcg
       {
         if (objetoNovo == null)
         {
-          objetoNovo = new Poligono(objetoId + 1, null);
+          objetoId = Utilitario.charProximo(objetoId);
+          objetoNovo = new Poligono(objetoId, null);
           objetosLista.Add(objetoNovo);
           objetoNovo.PontosAdicionar(new Ponto4D(mouseX, mouseY));
           objetoNovo.PontosAdicionar(new Ponto4D(mouseX, mouseY));  // N3-Exe6: "troque" para deixar o rastro

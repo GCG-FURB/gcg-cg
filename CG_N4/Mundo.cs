@@ -44,10 +44,10 @@ namespace gcgcg
     private CameraPerspective camera = new CameraPerspective();
     protected List<Objeto> objetosLista = new List<Objeto>();
     private ObjetoGeometria objetoSelecionado = null;
+    private char objetoId = '@';
     private bool bBoxDesenhar = false;
     int mouseX, mouseY;   //TODO: achar método MouseDown para não ter variável Global
     private Poligono objetoNovo = null;
-    private String objetoId = "A";
 #if CG_Privado
     private Retangulo obj_Retangulo;
     private Privado_SegReta obj_SegReta;
@@ -67,52 +67,65 @@ namespace gcgcg
 
 
 #if CG_Privado
-      obj_Retangulo = new Retangulo("A", null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
+      objetoId = Utilitario.charProximo(objetoId);
+      obj_Retangulo = new Retangulo(objetoId, null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
       obj_Retangulo.ObjetoCor.CorR = 255; obj_Retangulo.ObjetoCor.CorG = 0; obj_Retangulo.ObjetoCor.CorB = 255;
       objetosLista.Add(obj_Retangulo);
       objetoSelecionado = obj_Retangulo;
 
-      obj_SegReta = new Privado_SegReta("B", null, new Ponto4D(50, 150), new Ponto4D(150, 250));
+      objetoId = Utilitario.charProximo(objetoId);
+      obj_SegReta = new Privado_SegReta(objetoId, null, new Ponto4D(50, 150), new Ponto4D(150, 250));
       obj_SegReta.ObjetoCor.CorR = 255; obj_SegReta.ObjetoCor.CorG = 99; obj_SegReta.ObjetoCor.CorB = 71;
       objetosLista.Add(obj_SegReta);
       objetoSelecionado = obj_SegReta;
 
-      obj_Circulo = new Privado_Circulo("C", null, new Ponto4D(100, 300), 50);
+      objetoId = Utilitario.charProximo(objetoId);
+      obj_Circulo = new Privado_Circulo(objetoId, null, new Ponto4D(100, 300), 50);
       obj_Circulo.ObjetoCor.CorR = 177; obj_Circulo.ObjetoCor.CorG = 166; obj_Circulo.ObjetoCor.CorB = 136;
       objetosLista.Add(obj_Circulo);
       objetoSelecionado = obj_Circulo;
-      obj_Cilindro = new Cilindro("D", null);
+      obj_Cilindro = new Cilindro(objetoId, null);
       obj_Cilindro.ObjetoCor.CorR = 177; obj_Cilindro.ObjetoCor.CorG = 166; obj_Cilindro.ObjetoCor.CorB = 136;
       objetosLista.Add(obj_Cilindro);
       obj_Cilindro.EscalaXYZ(50, 50, 50);
       obj_Cilindro.TranslacaoXYZ(150, 0, 0);
 
-      obj_Esfera = new Esfera("E", null);
+      objetoId = Utilitario.charProximo(objetoId);
+      obj_Esfera = new Esfera(objetoId, null);
       obj_Esfera.ObjetoCor.CorR = 177; obj_Esfera.ObjetoCor.CorG = 166; obj_Esfera.ObjetoCor.CorB = 136;
       objetosLista.Add(obj_Esfera);
       obj_Esfera.EscalaXYZ(50, 50, 50);
       obj_Esfera.TranslacaoXYZ(200, 0, 0);
 
-      // obj_Cone = new Cone("F", null);
+      // objetoId = Utilitario.charProximo(objetoId);
+      // obj_Cone = new Cone(objetoId, null);
       // obj_Cone.ObjetoCor.CorR = 177; obj_Cone.ObjetoCor.CorG = 166; obj_Cone.ObjetoCor.CorB = 136;
       // objetosLista.Add(obj_Cone);
       // obj_Cone.EscalaXYZ(50, 50, 50);
       // obj_Cone.TranslacaoXYZ(250,0,0);
 #endif
-      obj_Cubo = new Cubo("Chão", null);
+      // Objeto Chão
+      objetoId = Utilitario.charProximo(objetoId);
+      obj_Cubo = new Cubo(objetoId, null);
       objetosLista.Add(obj_Cubo);
       obj_Cubo.EscalaXYZ(7, 1, 5);
       obj_Cubo.TranslacaoXYZ(3,-1,2);
 
-      obj_Cubo = new Cubo("Parede1", null);
+      // Objeto Parede 1
+      objetoId = Utilitario.charProximo(objetoId);
+      obj_Cubo = new Cubo(objetoId, null);
       objetosLista.Add(obj_Cubo);
       obj_Cubo.TranslacaoXYZ(0,0,0);
 
-      obj_Cubo = new Cubo("Parede2", null);
+      // Objeto Parede 2
+      objetoId = Utilitario.charProximo(objetoId);
+      obj_Cubo = new Cubo(objetoId, null);
       objetosLista.Add(obj_Cubo);
       obj_Cubo.TranslacaoXYZ(0,0,1);
 
-      obj_Cubo = new Cubo("Personagem", null);
+      // Objeto Personagem
+      objetoId = Utilitario.charProximo(objetoId);
+      obj_Cubo = new Cubo(objetoId, null);
       objetosLista.Add(obj_Cubo);
       obj_Cubo.EscalaXYZ(0.7, 0.7, 0.7);
       obj_Cubo.TranslacaoXYZ(1,0,3);
@@ -189,7 +202,8 @@ namespace gcgcg
       {
         if (objetoNovo == null)
         {
-          objetoNovo = new Poligono(objetoId + 1, null);
+          objetoId = Utilitario.charProximo(objetoId);
+          objetoNovo = new Poligono(objetoId, null);
           objetosLista.Add(objetoNovo);
           objetoNovo.PontosAdicionar(new Ponto4D(mouseX, mouseY));
           objetoNovo.PontosAdicionar(new Ponto4D(mouseX, mouseY));  // N3-Exe6: "troque" para deixar o rastro

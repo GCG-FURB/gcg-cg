@@ -19,7 +19,7 @@ namespace gcgcg
     //TODO: não precisava ter parte negativa, ter um tipo inteiro grande
     protected List<int> listaTopologia = new List<int>();
 
-    public Cone(string rotulo, Objeto paiRef) : base(rotulo, paiRef)
+    public Cone(char rotulo, Objeto paiRef) : base(rotulo, paiRef)
     {
       int segments = 10; // Números mais altos melhoram a qualidade 
       int radius = 1;    // O raio (largura) do cilindro

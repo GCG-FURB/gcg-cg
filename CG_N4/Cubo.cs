@@ -10,7 +10,7 @@ namespace gcgcg
   internal class Cubo : ObjetoGeometria
   {
     private bool exibeVetorNormal = false;
-    public Cubo(string rotulo, Objeto paiRef) : base(rotulo, paiRef)
+    public Cubo(char rotulo, Objeto paiRef) : base(rotulo, paiRef)
     {      
       base.PontosAdicionar(new Ponto4D(-0.5, -0.5, 0.5)); // PtoA listaPto[0]
       base.PontosAdicionar(new Ponto4D(0.5, -0.5, 0.5)); // PtoB listaPto[1]

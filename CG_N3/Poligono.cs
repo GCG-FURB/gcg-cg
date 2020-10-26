@@ -10,7 +10,7 @@ namespace gcgcg
 {
   internal class Poligono : ObjetoGeometria
   {
-    public Poligono(string rotulo, Objeto paiRef) : base(rotulo, paiRef)
+    public Poligono(char rotulo, Objeto paiRef) : base(rotulo, paiRef)
     {
     }
 

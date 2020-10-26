@@ -30,6 +30,7 @@ namespace gcgcg
     private CameraOrtho camera = new CameraOrtho();
     protected List<Objeto> objetosLista = new List<Objeto>();
     private ObjetoGeometria objetoSelecionado = null;
+    private char objetoId = '@';
     private bool bBoxDesenhar = false;
     int mouseX, mouseY;   //TODO: achar método MouseDown para não ter variável Global
     private bool mouseMoverPto = false;
@@ -47,18 +48,21 @@ namespace gcgcg
       Console.WriteLine(" --- Ajuda / Teclas: ");
       Console.WriteLine(" [  H     ] mostra teclas usadas. ");
 
-      obj_Retangulo = new Retangulo("A", null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
+      objetoId = Utilitario.charProximo(objetoId);
+      obj_Retangulo = new Retangulo(objetoId, null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
       obj_Retangulo.ObjetoCor.CorR = 255; obj_Retangulo.ObjetoCor.CorG = 0; obj_Retangulo.ObjetoCor.CorB = 255;
       objetosLista.Add(obj_Retangulo);
       objetoSelecionado = obj_Retangulo;
 
 #if CG_Privado
-      obj_SegReta = new Privado_SegReta("B", null, new Ponto4D(50, 150), new Ponto4D(150, 250));
+      objetoId = Utilitario.charProximo(objetoId);
+      obj_SegReta = new Privado_SegReta(objetoId, null, new Ponto4D(50, 150), new Ponto4D(150, 250));
       obj_SegReta.ObjetoCor.CorR = 255; obj_SegReta.ObjetoCor.CorG = 255; obj_SegReta.ObjetoCor.CorB = 0;
       objetosLista.Add(obj_SegReta);
       objetoSelecionado = obj_SegReta;
 
-      obj_Circulo = new Privado_Circulo("C", null, new Ponto4D(100, 300), 50);
+      objetoId = Utilitario.charProximo(objetoId);
+      obj_Circulo = new Privado_Circulo(objetoId, null, new Ponto4D(100, 300), 50);
       obj_Circulo.ObjetoCor.CorR = 0; obj_Circulo.ObjetoCor.CorG = 255; obj_Circulo.ObjetoCor.CorB = 255;
       objetosLista.Add(obj_Circulo);
       objetoSelecionado = obj_Circulo;

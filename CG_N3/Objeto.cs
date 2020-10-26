@@ -10,7 +10,7 @@ namespace gcgcg
 {
   internal abstract class Objeto
   {
-    protected string rotulo;
+    protected char rotulo;
     private Cor objetoCor = new Cor(255, 255, 255, 255);
     public Cor ObjetoCor { get => objetoCor; set => objetoCor = value; }
     private PrimitiveType primitivaTipo = PrimitiveType.LineLoop;
@@ -33,7 +33,7 @@ namespace gcgcg
     private char eixoRotacao = 'z';
     public void TrocaEixoRotacao(char eixo) => eixoRotacao = eixo;
 
-    public Objeto(string rotulo, Objeto paiRef)
+    public Objeto(char rotulo, Objeto paiRef)
     {
       this.rotulo = rotulo;
     }
