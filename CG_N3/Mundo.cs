@@ -72,7 +72,7 @@ namespace gcgcg
       objetosLista.Add(obj_Circulo);
       objetoSelecionado = obj_Circulo;
 #endif
-      GL.ClearColor(System.Drawing.Color.Gray);
+      GL.ClearColor(0.5f, 0.5f, 0.5f, 1.0f);
     }
     protected override void OnUpdateFrame(FrameEventArgs e)
     {
