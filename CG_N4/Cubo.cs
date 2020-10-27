@@ -5,6 +5,7 @@
 
 using OpenTK.Graphics.OpenGL;
 using CG_Biblioteca;
+
 namespace gcgcg
 {
   internal class Cubo : ObjetoGeometria
@@ -74,7 +75,7 @@ namespace gcgcg
       //   ajudaExibirVetorNormal(); //TODO: acho que não precisa.
     }
 
-    //TODO: melhorar para exibir não só a lsita de pontos (geometria), mas também a topologia ... poderia ser listado estilo OBJ da Wavefrom
+    //TODO: melhorar para exibir não só a lista de pontos (geometria), mas também a topologia ... poderia ser listado estilo OBJ da Wavefrom
     public override string ToString()
     {
       string retorno;

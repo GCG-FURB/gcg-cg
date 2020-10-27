@@ -2,9 +2,6 @@
   Autor: Dalton Solano dos Reis
 **/
 
-/// <summary>
-/// fonte: https://stackoverflow.com/questions/4170603/how-do-i-draw-a-cylinder-in-opentk-glu-cylinder
-/// </summary>
 using OpenTK.Graphics.OpenGL;
 using System;
 using System.Collections.Generic;
@@ -64,7 +61,7 @@ namespace gcgcg
       GL.End();
     }
 
-    //TODO: melhorar para exibir não só a lsita de pontos (geometria), mas também a topologia ... poderia ser listado estilo OBJ da Wavefrom
+    //TODO: melhorar para exibir não só a lista de pontos (geometria), mas também a topologia ... poderia ser listado estilo OBJ da Wavefrom
     public override string ToString()
     {
       string retorno;

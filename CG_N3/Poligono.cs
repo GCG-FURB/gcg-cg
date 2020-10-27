@@ -5,7 +5,6 @@
 using OpenTK.Graphics.OpenGL;
 using CG_Biblioteca;
 
-// ATENÇÃO: remover: "Privado_"
 namespace gcgcg
 {
   internal class Poligono : ObjetoGeometria
