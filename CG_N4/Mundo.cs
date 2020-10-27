@@ -248,8 +248,8 @@ namespace gcgcg
           objetoSelecionado.RotacaoZBBox(10);
         else if (e.Key == Key.Number4)
           objetoSelecionado.RotacaoZBBox(-10);
-        else if (e.Key == Key.Number0)
-          objetoSelecionado = null;
+        else if (e.Key == Key.Number9)
+          objetoSelecionado = null;                     // desmacar objeto selecionado
         else if (e.Key == Key.X)
           objetoSelecionado.TrocaEixoRotacao('x');
         else if (e.Key == Key.Y)
