@@ -17,7 +17,7 @@ namespace gcgcg
       Console.WriteLine(" [  H     ] mostra está ajuda. ");
       Console.WriteLine(" [Escape  ] sair. ");
       Console.WriteLine(" [  E     ] N3-Exe04: listas polígonos e vértices. ");
-      Console.WriteLine(" [  O     ] N3-Exe09: exibe bBox do polígono selecionado. ");
+      Console.WriteLine(" [  O     ] N3-Exe08: exibe bBox do polígono selecionado. ");
       Console.WriteLine(" [Enter   ] N3-Exe09: termina adição e mover de pontos, desseleciona polígono. ");
       Console.WriteLine(" [Espaço  ] N3-Exe06: adiciona vértice ao polígono. ");
       Console.WriteLine(" [  A     ] N3-Exe09: seleção do Polígono. ");
