@@ -136,6 +136,9 @@ namespace gcgcg
       // GL.Color3(0.0f,1.0f,0.0f);
       GL.Color3(Convert.ToByte(0), Convert.ToByte(255), Convert.ToByte(0));
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 200, 0);
+      // GL.Color3(0.0f,0.0f,1.0f);
+      GL.Color3(Convert.ToByte(0), Convert.ToByte(0), Convert.ToByte(255));
+      GL.Vertex3(0, 0, 0); GL.Vertex3(0, 0, 200);
       GL.End();
     }
 #endif    
