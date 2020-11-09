@@ -1,8 +1,4 @@
-﻿/**
-  Autor: Dalton Solano dos Reis
-**/
-
-#define CG_Gizmo
+﻿#define CG_Gizmo
 // #define CG_Privado
 
 using System;
