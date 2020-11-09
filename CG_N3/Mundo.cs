@@ -209,7 +209,7 @@ namespace gcgcg
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 0, 200);
       GL.End();
     }
-#endif    
+#endif
   }
   class Program
   {
