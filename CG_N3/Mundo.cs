@@ -47,9 +47,10 @@ namespace gcgcg
       objetoId = Utilitario.charProximo(objetoId);
       objetoNovo = new Poligono(objetoId, null);
       objetosLista.Add(objetoNovo);
-      objetoNovo.PontosAdicionar(new Ponto4D(50, 350));
-      objetoNovo.PontosAdicionar(new Ponto4D(150, 350));  // N3-Exe6: "troque" para deixar o rastro
-      objetoNovo.PontosAdicionar(new Ponto4D(100, 450));
+      objetoNovo.PontosAdicionar(new Ponto4D( 50,  50));
+      objetoNovo.PontosAdicionar(new Ponto4D(350,  50));
+      objetoNovo.PontosAdicionar(new Ponto4D(350, 350));
+      objetoNovo.PontosAdicionar(new Ponto4D( 50, 350));
       objetoSelecionado = objetoNovo;
       objetoNovo = null;
 
