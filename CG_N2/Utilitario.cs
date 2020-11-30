@@ -28,8 +28,7 @@ namespace gcgcg
       Console.WriteLine(" [Right   ] N3-Exe10: move o polígono selecionado para eixo X negativo. ");
       Console.WriteLine(" [Up      ] N3-Exe10: move o polígono selecionado para eixo Y positivo. ");
       Console.WriteLine(" [Down    ] N3-Exe10: move o polígono selecionado para eixo Y negativo. ");
-      Console.WriteLine(" [Up      ]         : move o polígono selecionado para eixo Z positivo. ");
-      Console.WriteLine(" [Down    ]         : move o polígono selecionado para eixo Z negativo. ");
+      // [TODO:] poderia usar a escolha do eixo X,Y,Z para além de saber qual eixo da rotação também qual eixo faz a translação. Assim as seta esq/dir move o objeto de acordo com o eixo, e as setas para cima e para baixo aumentam e diminuiem o passo da translação
       Console.WriteLine(" [PageUp  ]         : reduz o polígono selecionado em relação a origem. ");
       Console.WriteLine(" [PageDown]         : amplia o polígono selecionado em relação a origem. ");
       Console.WriteLine(" [Home    ] N3-Exe11: reduz o polígono selecionado em relação ao centro da bBox. ");
