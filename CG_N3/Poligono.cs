@@ -1,7 +1,3 @@
-/**
-  Autor: Dalton Solano dos Reis
-**/
-
 using OpenTK.Graphics.OpenGL;
 using CG_Biblioteca;
 
