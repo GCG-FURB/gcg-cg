@@ -26,7 +26,7 @@ namespace CG_Biblioteca
       eye = Vector3.Zero;
       eye.Z = 15;
       at = Vector3.Zero;
-      up = Vector3.UnitY;
+      up = Vector3.UnitY;   // 0, 1, 0
     }
 
     public float Fovy { get => fovy; set => fovy = value; }
