@@ -1,8 +1,4 @@
-﻿/**
-  Autor: Dalton Solano dos Reis
-**/
-
-#define CG_Gizmo
+﻿#define CG_Gizmo
 #define CG_Privado
 
 using System;
@@ -12,20 +8,6 @@ using System.Collections.Generic;
 using OpenTK.Input;
 using CG_Biblioteca;
 
-
-//FIXME: olhar exemplo alunos para arrumar esfera, está incompleta.
-//TODO: arrumar o id dos objetos usando char letra = 'A'; letra++;
-//TODO: ter mais objetos geométricos: esfera
-//TODO: arrumar objeto cone
-//TODO: ter iluminação
-//TODO: ter textura
-//TODO: ter texto 2D
-//TODO: ter um mapa em 2D
-//TODO: ler arquivo OBJ/MTL
-//TODO: ter audio
-//TODO: usar DisplayList
-//TODO: Seleciona Alpha
-//TODO: Unproject
 namespace gcgcg
 {
   class Mundo : GameWindow
@@ -45,16 +27,21 @@ namespace gcgcg
     protected List<Objeto> objetosLista = new List<Objeto>();
     private ObjetoGeometria objetoSelecionado = null;
     private char objetoId = '@';
+    private String menuSelecao = "";
+    private char menuEixoSelecao = 'z';
+    private short deslocamento = 0;
+
     private bool bBoxDesenhar = false;
     int mouseX, mouseY;   //TODO: achar método MouseDown para não ter variável Global
     private Poligono objetoNovo = null;
+
 #if CG_Privado
-    private Retangulo obj_Retangulo;
-    private Privado_SegReta obj_SegReta;
-    private Privado_Circulo obj_Circulo;
-    private Cilindro obj_Cilindro;
-    private Esfera obj_Esfera;
-    private Cone obj_Cone;
+    // private Retangulo obj_Retangulo;
+    // private Privado_SegReta obj_SegReta;
+    // private Privado_Circulo obj_Circulo;
+    // private Cilindro obj_Cilindro;
+    // private Esfera obj_Esfera;
+    // private Cone obj_Cone;
 #endif
     private Cubo obj_Cubo;
 
@@ -67,35 +54,35 @@ namespace gcgcg
 
 
 #if CG_Privado
-      objetoId = Utilitario.charProximo(objetoId);
-      obj_Retangulo = new Retangulo(objetoId, null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
-      obj_Retangulo.ObjetoCor.CorR = 255; obj_Retangulo.ObjetoCor.CorG = 0; obj_Retangulo.ObjetoCor.CorB = 255;
-      objetosLista.Add(obj_Retangulo);
-      objetoSelecionado = obj_Retangulo;
+      // objetoId = Utilitario.charProximo(objetoId);
+      // obj_Retangulo = new Retangulo(objetoId, null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
+      // obj_Retangulo.ObjetoCor.CorR = 255; obj_Retangulo.ObjetoCor.CorG = 0; obj_Retangulo.ObjetoCor.CorB = 255;
+      // objetosLista.Add(obj_Retangulo);
+      // objetoSelecionado = obj_Retangulo;
 
-      objetoId = Utilitario.charProximo(objetoId);
-      obj_SegReta = new Privado_SegReta(objetoId, null, new Ponto4D(50, 150), new Ponto4D(150, 250));
-      obj_SegReta.ObjetoCor.CorR = 255; obj_SegReta.ObjetoCor.CorG = 99; obj_SegReta.ObjetoCor.CorB = 71;
-      objetosLista.Add(obj_SegReta);
-      objetoSelecionado = obj_SegReta;
+      // objetoId = Utilitario.charProximo(objetoId);
+      // obj_SegReta = new Privado_SegReta(objetoId, null, new Ponto4D(50, 150), new Ponto4D(150, 250));
+      // obj_SegReta.ObjetoCor.CorR = 255; obj_SegReta.ObjetoCor.CorG = 99; obj_SegReta.ObjetoCor.CorB = 71;
+      // objetosLista.Add(obj_SegReta);
+      // objetoSelecionado = obj_SegReta;
 
-      objetoId = Utilitario.charProximo(objetoId);
-      obj_Circulo = new Privado_Circulo(objetoId, null, new Ponto4D(100, 300), 50);
-      obj_Circulo.ObjetoCor.CorR = 177; obj_Circulo.ObjetoCor.CorG = 166; obj_Circulo.ObjetoCor.CorB = 136;
-      objetosLista.Add(obj_Circulo);
-      objetoSelecionado = obj_Circulo;
-      obj_Cilindro = new Cilindro(objetoId, null);
-      obj_Cilindro.ObjetoCor.CorR = 177; obj_Cilindro.ObjetoCor.CorG = 166; obj_Cilindro.ObjetoCor.CorB = 136;
-      objetosLista.Add(obj_Cilindro);
-      obj_Cilindro.EscalaXYZ(50, 50, 50);
-      obj_Cilindro.TranslacaoXYZ(150, 0, 0);
+      // objetoId = Utilitario.charProximo(objetoId);
+      // obj_Circulo = new Privado_Circulo(objetoId, null, new Ponto4D(100, 300), 50);
+      // obj_Circulo.ObjetoCor.CorR = 177; obj_Circulo.ObjetoCor.CorG = 166; obj_Circulo.ObjetoCor.CorB = 136;
+      // objetosLista.Add(obj_Circulo);
+      // objetoSelecionado = obj_Circulo;
+      // obj_Cilindro = new Cilindro(objetoId, null);
+      // obj_Cilindro.ObjetoCor.CorR = 177; obj_Cilindro.ObjetoCor.CorG = 166; obj_Cilindro.ObjetoCor.CorB = 136;
+      // objetosLista.Add(obj_Cilindro);
+      // obj_Cilindro.EscalaXYZ(50, 50, 50);
+      // obj_Cilindro.TranslacaoXYZ(150, 0, 0);
 
-      objetoId = Utilitario.charProximo(objetoId);
-      obj_Esfera = new Esfera(objetoId, null);
-      obj_Esfera.ObjetoCor.CorR = 177; obj_Esfera.ObjetoCor.CorG = 166; obj_Esfera.ObjetoCor.CorB = 136;
-      objetosLista.Add(obj_Esfera);
-      obj_Esfera.EscalaXYZ(50, 50, 50);
-      obj_Esfera.TranslacaoXYZ(200, 0, 0);
+      // objetoId = Utilitario.charProximo(objetoId);
+      // obj_Esfera = new Esfera(objetoId, null);
+      // obj_Esfera.ObjetoCor.CorR = 177; obj_Esfera.ObjetoCor.CorG = 166; obj_Esfera.ObjetoCor.CorB = 136;
+      // objetosLista.Add(obj_Esfera);
+      // obj_Esfera.EscalaXYZ(50, 50, 50);
+      // obj_Esfera.TranslacaoXYZ(200, 0, 0);
 
       // objetoId = Utilitario.charProximo(objetoId);
       // obj_Cone = new Cone(objetoId, null);
@@ -108,34 +95,37 @@ namespace gcgcg
       objetoId = Utilitario.charProximo(objetoId);
       obj_Cubo = new Cubo(objetoId, null);
       objetosLista.Add(obj_Cubo);
-      obj_Cubo.EscalaXYZ(7, 1, 5);
-      obj_Cubo.TranslacaoXYZ(3,-1,2);
-
-      // Objeto Parede 1
-      objetoId = Utilitario.charProximo(objetoId);
-      obj_Cubo = new Cubo(objetoId, null);
-      objetosLista.Add(obj_Cubo);
-      obj_Cubo.TranslacaoXYZ(0,0,0);
-
-      // Objeto Parede 2
-      objetoId = Utilitario.charProximo(objetoId);
-      obj_Cubo = new Cubo(objetoId, null);
-      objetosLista.Add(obj_Cubo);
-      obj_Cubo.TranslacaoXYZ(0,0,1);
-
-      // Objeto Personagem
-      objetoId = Utilitario.charProximo(objetoId);
-      obj_Cubo = new Cubo(objetoId, null);
-      objetosLista.Add(obj_Cubo);
-      obj_Cubo.EscalaXYZ(0.7, 0.7, 0.7);
-      obj_Cubo.TranslacaoXYZ(1,0,3);
-
       objetoSelecionado = obj_Cubo;
 
-      camera.Eye = new Vector3(3.5f, -1, 3);
-      camera.At = new Vector3(3.5f, -0.5f, 2.5f);
-      camera.Near = 0.1f;
-      camera.Far = 60.0f;
+      // obj_Cubo.EscalaXYZ(7, 1, 5);
+      // obj_Cubo.TranslacaoXYZ(3,-1,2);
+
+      // // Objeto Parede 1
+      // objetoId = Utilitario.charProximo(objetoId);
+      // obj_Cubo = new Cubo(objetoId, null);
+      // objetosLista.Add(obj_Cubo);
+      // obj_Cubo.TranslacaoXYZ(0,0,0);
+
+      // // Objeto Parede 2
+      // objetoId = Utilitario.charProximo(objetoId);
+      // obj_Cubo = new Cubo(objetoId, null);
+      // objetosLista.Add(obj_Cubo);
+      // obj_Cubo.TranslacaoXYZ(0,0,1);
+
+      // // Objeto Personagem
+      // objetoId = Utilitario.charProximo(objetoId);
+      // obj_Cubo = new Cubo(objetoId, null);
+      // objetosLista.Add(obj_Cubo);
+      // obj_Cubo.EscalaXYZ(0.7, 0.7, 0.7);
+      // obj_Cubo.TranslacaoXYZ(1,0,3);
+
+      // objetoSelecionado = obj_Cubo;
+
+      // camera.Eye = new Vector3(3.5f, -1, 3);
+      camera.Eye = new Vector3(5.0f, 5.0f, 5.0f);
+      // camera.At = new Vector3(3.5f, -0.5f, 2.5f);
+      // camera.Near = 0.1f;
+      // camera.Far = 600.0f;
 
       GL.ClearColor(0.5f, 0.5f, 0.5f, 1.0f);
       GL.Enable(EnableCap.DepthTest);
@@ -175,10 +165,25 @@ namespace gcgcg
 
     protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)
     {
-      if (e.Key == Key.H)
-        Utilitario.AjudaTeclado();
-      else if (e.Key == Key.Escape)
-        Exit();
+      Console.WriteLine("__ "+menuSelecao);
+      if (e.Key == Key.H) Utilitario.AjudaTeclado();
+      else if (e.Key == Key.Escape) Exit();
+
+      else if (e.Key == Key.X) menuEixoSelecao = 'x';
+      else if (e.Key == Key.Y) menuEixoSelecao = 'y';
+      else if (e.Key == Key.Z) menuEixoSelecao = 'z';
+      else if (e.Key == Key.Minus) deslocamento--;
+      else if (e.Key == Key.Plus) deslocamento++;
+      else if (e.Key == Key.C) menuSelecao = "[menu] C: Câmera";
+      else if (e.Key == Key.O) menuSelecao = "[menu] O: Objeto";
+
+      // Menu: seleção
+      else if (menuSelecao.Equals("[menu] C: Câmera")) camera.MenuTecla(e.Key, menuEixoSelecao, deslocamento);
+      // else if (menuSelecao.Equals("[menu] O: Objeto")) //FIXME: terminar igual a camera
+      // {
+      //   if (objetoSelecionado != null) objetoSelecionado.MenuTecla(e.Key, menuEixoSelecao, deslocamento);
+      // }
+
       else if (e.Key == Key.E)
       {
         Console.WriteLine("--- Objetos / Pontos: ");
@@ -241,21 +246,15 @@ namespace gcgcg
         else if (e.Key == Key.End)
           objetoSelecionado.EscalaXYZBBox(2, 2, 2);
         else if (e.Key == Key.Number1)
-          objetoSelecionado.Rotacao(10);
+          objetoSelecionado.Rotacao(10, menuEixoSelecao);
         else if (e.Key == Key.Number2)
-          objetoSelecionado.Rotacao(-10);
+          objetoSelecionado.Rotacao(-10, menuEixoSelecao);
         else if (e.Key == Key.Number3)
-          objetoSelecionado.RotacaoZBBox(10);
+          objetoSelecionado.RotacaoZBBox(10, menuEixoSelecao);
         else if (e.Key == Key.Number4)
-          objetoSelecionado.RotacaoZBBox(-10);
+          objetoSelecionado.RotacaoZBBox(-10, menuEixoSelecao);
         else if (e.Key == Key.Number9)
           objetoSelecionado = null;                     // desmacar objeto selecionado
-        else if (e.Key == Key.X)
-          objetoSelecionado.TrocaEixoRotacao('x');
-        else if (e.Key == Key.Y)
-          objetoSelecionado.TrocaEixoRotacao('y');
-        else if (e.Key == Key.Z)
-          objetoSelecionado.TrocaEixoRotacao('z');
         else
           Console.WriteLine(" __ Tecla não implementada.");
       }

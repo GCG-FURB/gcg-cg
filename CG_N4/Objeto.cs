@@ -1,7 +1,3 @@
-/**
-  Autor: Dalton Solano dos Reis
-**/
-
 using OpenTK.Graphics.OpenGL;
 using System.Collections.Generic;
 using CG_Biblioteca;
@@ -30,8 +26,6 @@ namespace gcgcg
     private static Transformacao4D matrizTmpEscala = new Transformacao4D();
     private static Transformacao4D matrizTmpRotacao = new Transformacao4D();
     private static Transformacao4D matrizGlobal = new Transformacao4D();
-    private char eixoRotacao = 'z';
-    public void TrocaEixoRotacao(char eixo) => eixoRotacao = eixo;
 
     public Objeto(char rotulo, Objeto paiRef)
     {
@@ -94,7 +88,7 @@ namespace gcgcg
 
       matriz = matriz.MultiplicarMatriz(matrizGlobal);
     }
-    public void RotacaoEixo(double angulo)
+    public void RotacaoEixo(double angulo, char eixoRotacao)
     {
       switch (eixoRotacao)
       {
@@ -109,12 +103,12 @@ namespace gcgcg
           break;
       }
     }
-    public void Rotacao(double angulo)
+    public void Rotacao(double angulo, char eixoRotacao)
     {
-      RotacaoEixo(angulo);
+      RotacaoEixo(angulo, eixoRotacao);
       matriz = matrizTmpRotacao.MultiplicarMatriz(matriz);
     }
-    public void RotacaoZBBox(double angulo)
+    public void RotacaoZBBox(double angulo, char eixoRotacao)
     {
       matrizGlobal.AtribuirIdentidade();
       Ponto4D pontoPivo = bBox.obterCentro;
@@ -122,7 +116,7 @@ namespace gcgcg
       matrizTmpTranslacao.AtribuirTranslacao(-pontoPivo.X, -pontoPivo.Y, -pontoPivo.Z); // Inverter sinal
       matrizGlobal = matrizTmpTranslacao.MultiplicarMatriz(matrizGlobal);
 
-      RotacaoEixo(angulo);
+      RotacaoEixo(angulo, eixoRotacao);
       matrizGlobal = matrizTmpRotacao.MultiplicarMatriz(matrizGlobal);
 
       matrizTmpTranslacaoInversa.AtribuirTranslacao(pontoPivo.X, pontoPivo.Y, pontoPivo.Z);
