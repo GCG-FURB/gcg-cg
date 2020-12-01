@@ -165,6 +165,7 @@ namespace gcgcg
 
     protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)
     {
+      Console.Clear(); //TODO: não funciona.
       Console.WriteLine("__ "+menuSelecao);
       if (e.Key == Key.H) Utilitario.AjudaTeclado();
       else if (e.Key == Key.Escape) Exit();
