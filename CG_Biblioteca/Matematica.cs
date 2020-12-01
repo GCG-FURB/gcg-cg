@@ -1,7 +1,3 @@
-/**
-  Autor: Dalton Solano dos Reis
-**/
-
 using System;
 
 namespace CG_Biblioteca
@@ -30,5 +26,6 @@ namespace CG_Biblioteca
     {
       return (raio * Math.Cos(Math.PI * 45 / 180.0));
     }
+    
   }
 }
