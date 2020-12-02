@@ -20,7 +20,7 @@ namespace gcgcg
     {
       int segments = 10; // Números mais altos melhoram a qualidade 
       int radius = 1;    // O raio (largura) do cilindro
-      int height = 10;   // A altura do cilindro
+      int height = 2;   // A altura do cilindro
 
       for (double y = 0; y < 2; y++)
       {

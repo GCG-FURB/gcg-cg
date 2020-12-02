@@ -33,11 +33,11 @@ namespace CG_Biblioteca
     public Vector3 At { get => at; set => at = value; }
     public Vector3 Up { get => up; }
 
-    private void FovyDes(int deslocamento) { fovy += deslocamento; }
-    private void NearDes(int deslocamento) { near += deslocamento; }
-    private void FarDes(int deslocamento) { far += deslocamento; }
+    private void FovyDes(float deslocamento) { fovy += deslocamento; }
+    private void NearDes(float deslocamento) { near += deslocamento; }
+    private void FarDes(float deslocamento) { far += deslocamento; }
 
-    private void EyeDes(int deslocamento, char eixo)
+    private void EyeDes(float deslocamento, char eixo)
     {
       switch (eixo)
       {
@@ -47,7 +47,7 @@ namespace CG_Biblioteca
       }
     }
 
-    private void AtDes(int deslocamento, char eixo)
+    private void AtDes(float deslocamento, char eixo)
     {
       switch (eixo)
       {
@@ -57,7 +57,7 @@ namespace CG_Biblioteca
       }
     }
 
-    public void MenuTecla(OpenTK.Input.Key tecla, char eixo, short deslocamento)
+    public void MenuTecla(OpenTK.Input.Key tecla, char eixo, float deslocamento)
     {
       if (tecla == Key.P) Console.WriteLine(this);
       else if (tecla == Key.R)
@@ -71,9 +71,8 @@ namespace CG_Biblioteca
         up = Vector3.UnitY;               // ( 0, 1, 0)
       }
       else if (tecla == Key.Up) menuCameraOpcao++;
-      else if (tecla == Key.Down) menuCameraOpcao--;
-      else if (tecla == Key.Left) deslocamento = -2; //TODO: qdo chega indice 0 não vai para o final
-      else if (tecla == Key.Right) deslocamento = 2;
+      else if (tecla == Key.Down) menuCameraOpcao--; //TODO: qdo chega indice 0 não vai para o final
+      else if (tecla == Key.Left) deslocamento = -deslocamento;
 
       if (!Enum.IsDefined(typeof(menuCameraEnum), menuCameraOpcao))
         menuCameraOpcao = menuCameraEnum.eye;

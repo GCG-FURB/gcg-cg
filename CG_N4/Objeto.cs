@@ -1,4 +1,6 @@
+using System;
 using OpenTK.Graphics.OpenGL;
+using OpenTK.Input;
 using System.Collections.Generic;
 using CG_Biblioteca;
 
@@ -26,6 +28,9 @@ namespace gcgcg
     private static Transformacao4D matrizTmpEscala = new Transformacao4D();
     private static Transformacao4D matrizTmpRotacao = new Transformacao4D();
     private static Transformacao4D matrizGlobal = new Transformacao4D();
+
+    private enum menuObjetoEnum { Translacao, Escala, Rotacao }
+    private menuObjetoEnum menuObjetoOpcao;
 
     public Objeto(char rotulo, Objeto paiRef)
     {
@@ -59,16 +64,30 @@ namespace gcgcg
     {
       matriz.AtribuirIdentidade();
     }
-    public void TranslacaoXYZ(double tx, double ty, double tz)
+    public void TranslacaoEixo(double deslocamento, char eixoTranslacao)
     {
-      Transformacao4D matrizTranslate = new Transformacao4D();
-      matrizTranslate.AtribuirTranslacao(tx, ty, tz);
-      matriz = matrizTranslate.MultiplicarMatriz(matriz);
+      switch (eixoTranslacao)
+      {
+        case 'x':
+          matrizTmpTranslacao.AtribuirTranslacao(deslocamento, 0, 0);
+          break;
+        case 'y':
+          matrizTmpTranslacao.AtribuirTranslacao(0, deslocamento, 0);
+          break;
+        case 'z':
+          matrizTmpTranslacao.AtribuirTranslacao(0, 0, deslocamento);
+          break;
+      }
     }
-    public void EscalaXYZ(double Sx, double Sy, double Sz)
+    public void Translacao(double deslocamento, char eixoTranslacao)
+    {
+      TranslacaoEixo(deslocamento, eixoTranslacao);
+      matriz = matrizTmpTranslacao.MultiplicarMatriz(matriz);
+    }
+    public void Escala(double fator)
     {
       Transformacao4D matrizScale = new Transformacao4D();
-      matrizScale.AtribuirEscala(Sx, Sy, Sz);
+      matrizScale.AtribuirEscala(fator, fator, fator);
       matriz = matrizScale.MultiplicarMatriz(matriz);
     }
 
@@ -103,26 +122,74 @@ namespace gcgcg
           break;
       }
     }
-    public void Rotacao(double angulo, char eixoRotacao)
-    {
-      RotacaoEixo(angulo, eixoRotacao);
-      matriz = matrizTmpRotacao.MultiplicarMatriz(matriz);
-    }
-    public void RotacaoZBBox(double angulo, char eixoRotacao)
+    public void Rotacao(double angulo, char eixoRotacao, bool bBoxPivo = false)
     {
       matrizGlobal.AtribuirIdentidade();
       Ponto4D pontoPivo = bBox.obterCentro;
 
-      matrizTmpTranslacao.AtribuirTranslacao(-pontoPivo.X, -pontoPivo.Y, -pontoPivo.Z); // Inverter sinal
-      matrizGlobal = matrizTmpTranslacao.MultiplicarMatriz(matrizGlobal);
+      if (bBoxPivo)
+      {
+        matrizTmpTranslacao.AtribuirTranslacao(-pontoPivo.X, -pontoPivo.Y, -pontoPivo.Z); // Inverter sinal
+        matrizGlobal = matrizTmpTranslacao.MultiplicarMatriz(matrizGlobal);
+      }
 
       RotacaoEixo(angulo, eixoRotacao);
       matrizGlobal = matrizTmpRotacao.MultiplicarMatriz(matrizGlobal);
 
-      matrizTmpTranslacaoInversa.AtribuirTranslacao(pontoPivo.X, pontoPivo.Y, pontoPivo.Z);
-      matrizGlobal = matrizTmpTranslacaoInversa.MultiplicarMatriz(matrizGlobal);
+      if (bBoxPivo)
+      {
+        matrizTmpTranslacao.AtribuirTranslacao(-pontoPivo.X, -pontoPivo.Y, -pontoPivo.Z); // Inverter sinal
+        matrizGlobal = matrizTmpTranslacao.MultiplicarMatriz(matrizGlobal);
+      }
 
       matriz = matriz.MultiplicarMatriz(matrizGlobal);
     }
+
+    public void MenuTecla(OpenTK.Input.Key tecla, char eixo, float deslocamento, bool bBox)
+    {
+      if (tecla == Key.P) {
+        Console.WriteLine(this);
+        if (bBox) {
+          Console.Write(BBox);
+        }
+      }
+      else if (tecla == Key.M) Console.WriteLine(this.Matriz);
+      else if (tecla == Key.R)
+      {
+        this.AtribuirIdentidade();
+      }
+      else if (tecla == Key.Up) menuObjetoOpcao++;
+      else if (tecla == Key.Down) menuObjetoOpcao--; //TODO: qdo chega indice 0 não vai para o final
+
+      if (!Enum.IsDefined(typeof(menuObjetoEnum), menuObjetoOpcao))
+        menuObjetoOpcao = menuObjetoEnum.Translacao;
+
+      Console.WriteLine("__ Objeto (" + menuObjetoOpcao + "," + eixo + "," + deslocamento + ")");
+      if ((tecla == Key.Left) || (tecla == Key.Right))
+      {
+        switch (menuObjetoOpcao)
+        {
+          case menuObjetoEnum.Translacao:
+            if (tecla == Key.Left)
+              deslocamento = -deslocamento;
+            this.Translacao(deslocamento, eixo);
+            break;
+          case menuObjetoEnum.Escala:
+            if (deslocamento > 1)
+            {
+              if (tecla == Key.Left)
+                deslocamento = 1 / deslocamento;
+              this.Escala(deslocamento);
+            }
+            break;
+          case menuObjetoEnum.Rotacao:
+            if (tecla == Key.Left)
+              deslocamento = -deslocamento;
+            this.Rotacao(deslocamento, eixo, bBox); //TODO: deslocamento (float) .. angulo (double)
+            break;
+        }
+      }
+    }
+
   }
 }
